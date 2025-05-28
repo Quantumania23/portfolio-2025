@@ -14,6 +14,7 @@ import {
 import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 import GradientMagicButton from "./gradient-magic-button";
+import Image from "next/image";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -72,22 +73,22 @@ export default function Navigation() {
   const socialLinks = [
     {
       name: "GitHub",
-      href: process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com/elijahondiekashbased",
+      href: process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com/Quantumania23",
       icon: <Github className="w-5 h-5" />,
     },
     {
       name: "LinkedIn",
-      href: process.env.NEXT_PUBLIC_LINKEDIN_URL || "https://www.linkedin.com/in/ondiek-elijah/",
+      href: process.env.NEXT_PUBLIC_LINKEDIN_URL || "https://www.linkedin.com/in/mike-mutuku-0a243a1bb/",
       icon: <Linkedin className="w-5 h-5" />,
     },
     {
       name: "Twitter",
-      href: process.env.NEXT_PUBLIC_TWITTER_URL || "https://x.com/0chibo_",
+      href: process.env.NEXT_PUBLIC_TWITTER_URL || "https://x.com/Mikepeace981",
       icon: <Twitter className="w-5 h-5" />,
     },
     {
       name: "Email",
-      href: `mailto:${process.env.NEXT_PUBLIC_EMAIL || "eochieng9448@gmail.com"}`,
+      href: `mailto:${process.env.NEXT_PUBLIC_EMAIL || "mikepeace023@icloud.com"}`,
       icon: <Mail className="w-5 h-5" />,
     },
   ];
@@ -111,17 +112,21 @@ export default function Navigation() {
             )}
             onClick={() => setActiveSection("home")}
           >
-            <span
-              className="text-transparent bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text"
+            <Image
+              className="text-transparent bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text rounded-full"
               style={{
                 backgroundImage:
                   theme === "light"
                     ? "linear-gradient(to right, #3b82f6, #10b981)"
                     : "linear-gradient(to right, #00d4ff, #00ff88)",
               }}
-            >
-              Elijah Ondiek
-            </span>
+              src="/Q23.jpeg"
+              width={40}
+              height={40}
+              alt="Logo"
+              priority
+            >  
+            </Image>
           </Link>
 
           {/* Desktop Navigation */}
@@ -171,7 +176,7 @@ export default function Navigation() {
             </div>
 
             <GradientMagicButton
-              href={process.env.NEXT_PUBLIC_RESUME_LINK || "https://docs.google.com/document/d/15EyX05Sg4k-fDOvEoEWjR53yjP_r_xHh9LBwLj3ldOE/edit?usp=sharing"}
+              href={process.env.NEXT_PUBLIC_RESUME_LINK || "https://docs.google.com/document/d/1AOGztSR1ueyTft4dnFpBEes6r7cZpq-hEw53EDtiG6M/edit?usp=sharing"}
               className={cn(
                 "inline-flex items-center space-x-2 px-4 py-2 rounded-xl font-medium text-sm transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl text-white [&_*]:!text-white"
               )}
@@ -258,7 +263,7 @@ export default function Navigation() {
             </div>
 
             <GradientMagicButton
-              href={process.env.NEXT_PUBLIC_RESUME_LINK || "https://docs.google.com/document/d/15EyX05Sg4k-fDOvEoEWjR53yjP_r_xHh9LBwLj3ldOE/edit?usp=sharing"}
+              href={process.env.NEXT_PUBLIC_RESUME_LINK || "https://docs.google.com/document/d/1AOGztSR1ueyTft4dnFpBEes6r7cZpq-hEw53EDtiG6M/edit?usp=sharing"}
               className={cn(
                 "inline-flex items-center space-x-2 w-full justify-center px-4 py-2 rounded-xl font-medium text-sm transition-all duration-300 hover:scale-105",
                 theme === "light"

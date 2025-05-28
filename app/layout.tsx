@@ -13,7 +13,7 @@ const inter = Inter({
 // Base URL for your site - use relative URLs for local development
 const isProduction = process.env.NODE_ENV === 'production';
 const baseUrl = isProduction 
-  ? 'https://elijah-ondiek.com' 
+  ? 'https://mikepeace.vercel.app' 
   : ''; // Use relative URLs in development
 
   export const metadata: Metadata = {

@@ -20,42 +20,44 @@ export default function Hero() {
 
   // Floating achievements data with improved colors and styling
   const achievements = [
-    {
-      icon: "💰",
-      value: "KES 1.1B+",
-      label: "Business Impact",
-      bgColor: "bg-blue-900/90",
-      borderColor: "border-blue-500",
-      iconBg: "bg-blue-700",
-      delay: 0.2, // Restored delay
-    },
-    {
-      icon: "🏢",
-      value: "128K+",
-      label: "Organizations Served",
-      bgColor: "bg-emerald-900/90",
-      borderColor: "border-emerald-500",
-      iconBg: "bg-emerald-700",
-      delay: 0.4, // Restored delay
-    },
-    {
-      icon: "🎤",
-      value: "10+",
-      label: "Speaking Events",
-      bgColor: "bg-purple-900/90",
-      borderColor: "border-purple-500",
-      iconBg: "bg-purple-700",
-      delay: 0.6, // Restored delay
-    },
-    {
+   
+    // {
+    //   icon: "💰",
+    //   value: "KES 1.1B+",
+    //   label: "Business Impact",
+    //   bgColor: "bg-blue-900/90",
+    //   borderColor: "border-blue-500",
+    //   iconBg: "bg-blue-700",
+    //   delay: 0.2, // Restored delay
+    // },
+    // {
+    //   icon: "🏢",
+    //   value: "128K+",
+    //   label: "Organizations Served",
+    //   bgColor: "bg-emerald-900/90",
+    //   borderColor: "border-emerald-500",
+    //   iconBg: "bg-emerald-700",
+    //   delay: 0.4, // Restored delay
+    // },
+     {
       icon: "🏆",
       value: "Top Performer",
-      label: "Safaricom PLC",
+      label: "Q23 STUDDIOS",
       bgColor: "bg-amber-900/90",
       borderColor: "border-amber-500",
       iconBg: "bg-amber-700",
       delay: 0.8, // Restored delay
     },
+    // {
+    //   icon: "🎤",
+    //   value: "10+",
+    //   label: "Speaking Events",
+    //   bgColor: "bg-purple-900/90",
+    //   borderColor: "border-purple-500",
+    //   iconBg: "bg-purple-700",
+    //   delay: 0.6, // Restored delay
+    // },
+    
   ]
 
   // Tech stack icons for the animated background - removed delays for better UX
@@ -205,14 +207,14 @@ export default function Hero() {
               className="text-5xl md:text-7xl font-bold tracking-tight text-[var(--text-primary)] pb-1"
               variants={itemVariants}
             >
-              Elijah Ondiek
+              Q23 Studdios
             </motion.h1>
           </div>
 
           {/* Professional title with animated underline */}
           <motion.div variants={itemVariants} className="space-y-1">
-            <h2 className="text-xl md:text-2xl font-medium text-blue-400">Andela Software Engineer</h2>
-            <p className="text-lg text-[var(--text-secondary)]">Currently at Safaricom PLC</p>
+            <h2 className="text-xl md:text-2xl font-medium text-blue-400">Software Engineer / Game Developer</h2>
+            <p className="text-lg text-[var(--text-secondary)]">Currently at Q23 Studdios</p>
           </motion.div>
 
           {/* Mission statement with word-by-word animation */}
@@ -297,7 +299,7 @@ export default function Hero() {
 
             {/* Resume CTA */}
             <motion.a
-              href={process.env.NEXT_PUBLIC_RESUME_LINK || "https://docs.google.com/document/d/15EyX05Sg4k-fDOvEoEWjR53yjP_r_xHh9LBwLj3ldOE/edit?usp=sharing"}
+              href={process.env.NEXT_PUBLIC_RESUME_LINK || "https://docs.google.com/document/d/1AOGztSR1ueyTft4dnFpBEes6r7cZpq-hEw53EDtiG6M/edit?usp=sharing"}
               target="_blank"
               rel="noopener noreferrer"
               className="group relative rounded-xl bg-transparent border-2 border-blue-500/50 px-6 py-4 transition-all duration-300 dark:[&_span]:!text-blue-400 [&_span]:!text-blue-600"
@@ -338,7 +340,7 @@ export default function Hero() {
               <Code className="w-4 h-4 mr-2" />
               Tech Stack:
             </div>
-            {["React", "TypeScript", "Node.js", "Python", "AWS"].map((tech, i) => (
+            {["React", "TypeScript", "Node.js", "JavaScript", "AWS"].map((tech, i) => (
               <motion.span
                 key={i}
                 className="px-2.5 py-1 text-xs rounded-md bg-white/5 text-[var(--text-secondary)] border border-white/10"
@@ -398,7 +400,7 @@ export default function Hero() {
                     <div className="flex pl-8">
                       <span className="text-slate-500 w-8">02</span>
                       <span className="text-emerald-400">name:</span>
-                      <span className="text-amber-300 mx-2">'Elijah Ondiek'</span>
+                      <span className="text-amber-300 mx-2">'Mike Peace'</span>
                       <span className="text-white">,</span>
                     </div>
                     <div className="flex pl-8">
@@ -410,7 +412,7 @@ export default function Hero() {
                     <div className="flex pl-8">
                       <span className="text-slate-500 w-8">04</span>
                       <span className="text-emerald-400">company:</span>
-                      <span className="text-amber-300 mx-2">'Safaricom PLC'</span>
+                      <span className="text-amber-300 mx-2">'Q23 Studdios'</span>
                       <span className="text-white">,</span>
                     </div>
                     <div className="flex pl-8">
@@ -429,11 +431,11 @@ export default function Hero() {
                     </div>
                     <div className="flex pl-16">
                       <span className="text-slate-500 w-8">07</span>
-                      <span className="text-amber-300">'Python'</span>
+                      <span className="text-amber-300">'C++'</span>
                       <span className="text-white">,</span>
                       <span className="text-amber-300 ml-2">'AWS'</span>
                       <span className="text-white">,</span>
-                      <span className="text-amber-300 ml-2">'GraphQL'</span>
+                      <span className="text-amber-300 ml-2">'Ruby'</span>
                     </div>
                     <div className="flex pl-8">
                       <span className="text-slate-500 w-8">08</span>
@@ -455,7 +457,7 @@ export default function Hero() {
                     <div className="flex pl-16">
                       <span className="text-slate-500 w-8">11</span>
                       <span className="text-emerald-400">email:</span>
-                      <span className="text-amber-300 mx-2">'eochieng9448@gmail.com'</span>
+                      <span className="text-amber-300 mx-2">'mikepeace023@icloud.com'</span>
                     </div>
                     <div className="flex pl-8">
                       <span className="text-slate-500 w-8">12</span>

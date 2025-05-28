@@ -6,6 +6,7 @@ import { Github, Linkedin, Twitter, Mail, Sun, Moon, Heart, Wifi } from "lucide-
 import { useTheme } from "next-themes"
 
 export default function Footer() {
+  
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear())
   const { theme, setTheme } = useTheme()
   const [pageLoadTime, setPageLoadTime] = useState<number | null>(null)
@@ -103,13 +104,14 @@ export default function Footer() {
     { name: "Experience", href: "#experience" },
     { name: "Projects", href: "#projects" },
     { name: "Contact", href: "#contact" },
+    { name: "Articles", href: "/articles" },
   ]
 
   const socialLinks = [
-    { name: "GitHub", href: process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com/elijahondiekashbased", icon: <Github className="w-5 h-5" /> },
-    { name: "LinkedIn", href: process.env.NEXT_PUBLIC_LINKEDIN_URL || "https://www.linkedin.com/in/ondiek-elijah/", icon: <Linkedin className="w-5 h-5" /> },
-    { name: "Twitter", href: process.env.NEXT_PUBLIC_TWITTER_URL || "https://x.com/0chibo_", icon: <Twitter className="w-5 h-5" /> },
-    { name: "Email", href: `mailto:${process.env.NEXT_PUBLIC_EMAIL || "eochieng9448@gmail.com"}`, icon: <Mail className="w-5 h-5" /> },
+    { name: "GitHub", href: process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com/Quantumania23", icon: <Github className="w-5 h-5" /> },
+    { name: "LinkedIn", href: process.env.NEXT_PUBLIC_LINKEDIN_URL || "https://www.linkedin.com/in/mike-mutuku-0a243a1bb/", icon: <Linkedin className="w-5 h-5" /> },
+    { name: "Twitter", href: process.env.NEXT_PUBLIC_TWITTER_URL || "https://x.com/Mikepeace981", icon: <Twitter className="w-5 h-5" /> },
+    { name: "Email", href: `mailto:${process.env.NEXT_PUBLIC_EMAIL || "mikepeace023@icloud.com"}`, icon: <Mail className="w-5 h-5" /> },
   ]
 
   return (
@@ -129,14 +131,14 @@ export default function Footer() {
                   backgroundClip: "text",
                 }}
               >
-                Elijah Ondiek
+                Mike Peace
               </Link>
               <p className="text-[#b4bcd0] mb-4">
                 Software Engineer specializing in creating exceptional digital experiences.
               </p>
               <div className="flex items-center text-[#b4bcd0]">
                 <span className="flex items-center">
-                  Made with <Heart className="w-4 h-4 text-[#ff6b6b] mx-1" fill="#ff6b6b" /> in Kenya
+                  Made with <Heart className="w-4 h-4 text-[#ff6b6b] mx-1" fill="#ff6b6b" /> by Q23 Studdios.
                 </span>
               </div>
             </div>
@@ -144,18 +146,30 @@ export default function Footer() {
             {/* Quick Links */}
             <div>
               <h3 className="font-bold mb-4">Quick Links</h3>
-              <ul className="space-y-2">
-                {navLinks.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      className="text-[#b4bcd0] hover:text-[#00d4ff] transition-colors duration-300"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+             <ul className="space-y-2">
+  {navLinks.map((link) => (
+    <li key={link.name}>
+      {link.name === "Articles" ? (
+        <a
+          href={`/${link.href}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#b4bcd0] hover:text-[#00d4ff] transition-colors duration-300"
+        >
+          {link.name}
+        </a>
+      ) : (
+        <Link
+          href={link.href}
+          className="text-[#b4bcd0] hover:text-[#00d4ff] transition-colors duration-300"
+        >
+          {link.name}
+        </Link>
+      )}
+    </li>
+  ))}
+</ul>
+
             </div>
 
             {/* Connect */}
@@ -190,7 +204,7 @@ export default function Footer() {
 
         {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row justify-between items-center text-sm text-[#b4bcd0]">
-          <div>© {currentYear} Elijah Ondiek. All rights reserved.</div>
+          <div>© {currentYear} Mike Peace. All rights reserved.</div>
           <div className="flex items-center gap-3 mt-4 md:mt-0">
             {/* Service Status Indicator */}
             <span className="glass-card px-3 py-1 rounded-full text-xs flex items-center gap-1.5">

@@ -26,7 +26,7 @@ export default function SkillsSidebarLayout() {
       name: "Languages",
       icon: <Languages className="w-5 h-5" />,
       description: "Core programming languages and markup technologies I use daily",
-      skills: ["HTML5", "CSS3", "Python", "JavaScript (ES6)", "TypeScript", "GraphQL", "SQL"],
+      skills: ["HTML5", "CSS3", "C++", "JavaScript (ES6)", "TypeScript", "NodeJs", "SQL"],
     },
     {
       id: "frameworks",
@@ -38,7 +38,7 @@ export default function SkillsSidebarLayout() {
         "Next.js",
         "Node.js",
         "Express.js",
-        "Flask",
+        "Three.js",
         "FastAPI",
         "Bootstrap5",
         "TailwindCSS",
@@ -78,7 +78,7 @@ export default function SkillsSidebarLayout() {
       name: "CMS & Others",
       icon: <FileCode className="w-5 h-5" />,
       description: "Content management systems and additional technologies",
-      skills: ["Sanity", "Shopify", "HygraphCMS", "RabbitMQ"],
+      skills: ["Sanity", "Shopify", "HygraphCMS", "RabbitMQ", "WordPress"],
     },
   ]
 

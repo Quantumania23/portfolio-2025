@@ -33,7 +33,7 @@ const achievements = [
   {
     icon: "🏆",
     value: "Top Performer",
-    label: "Safaricom PLC",
+    label: "Q23 STUDDIOS",
     bgColor: "bg-amber-900/90",
     borderColor: "border-amber-500",
     iconBg: "bg-amber-700",
