@@ -1,7 +1,5 @@
 {
-  "name": "mike-peace-portfolio",
-  "description": "Mike Peace's personal portfolio website built with Next.js, Radix UI, and Tailwind CSS.",
-  "author": "Mike Peace",
+  "name": "my-v0-project",
   "version": "0.1.0",
   "private": true,
   "scripts": {
