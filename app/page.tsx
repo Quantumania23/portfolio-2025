@@ -1,5 +1,7 @@
 "use client"
 
+import { useEffect, useState } from "react"
+import Loader from "@/components/Loader"
 import Hero from "@/components/hero"
 import AchievementsSection from "@/components/achievements-section"
 import Navigation from "@/components/navigation"
@@ -18,6 +20,19 @@ import ToastNotifications from "@/components/toast-notifications"
 import AccessibilityEnhancements from "@/components/accessibility-enhancements"
 
 export default function Home() {
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    // Optional: this can also be managed in <Loader /> with onComplete
+    // but for flexibility, you can change timeout duration here
+    const timer = setTimeout(() => setLoading(false), 5000)
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (loading) {
+    return <Loader onComplete={() => setLoading(false)} />
+  }
+
   return (
     <main className="min-h-screen relative overflow-hidden" id="main-content">
       <div className="absolute inset-0 z-0">
@@ -48,8 +63,6 @@ export default function Home() {
 }
 
 function ParticleBackground() {
-  // Generate static values instead of random ones during server rendering
-  // This prevents hydration mismatches and window reference issues
   const particles = Array.from({ length: 20 }).map((_, i) => ({
     width: 50 + (i % 5) * 20,
     height: 50 + (i % 5) * 20,
@@ -58,7 +71,7 @@ function ParticleBackground() {
     duration: 10 + (i % 10),
     delay: i % 5,
     opacity: 0.1 + (i % 5) * 0.1,
-  }));
+  }))
 
   return (
     <div className="absolute inset-0 overflow-hidden">

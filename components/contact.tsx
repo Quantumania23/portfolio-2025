@@ -25,6 +25,9 @@ import {
   DollarSign,
 } from "lucide-react";
 import GradientMagicButton from "./gradient-magic-button";
+import Contact from "@/components/Contacts";
+import Image from "next/image";
+import Link from "next/link";
 
 interface ContactMethod {
   id: string;
@@ -35,7 +38,7 @@ interface ContactMethod {
   copyable?: boolean;
 }
 
-export default function Contact() {
+export default function ContactPage() {
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [currentTime, setCurrentTime] = useState("");
@@ -43,6 +46,7 @@ export default function Contact() {
   const [availabilityStatus, setAvailabilityStatus] = useState<
     "available" | "busy" | "away"
   >("available");
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Intersection Observer for scroll animations
@@ -129,30 +133,38 @@ export default function Contact() {
     }
   };
 
+  const handleContactPopupOpen = () => {
+    setIsContactPopupOpen(true);
+  };
+
+  const handleContactPopupClose = () => {
+    setIsContactPopupOpen(false);
+  };
+
   const contactMethods: ContactMethod[] = [
     {
       id: "email",
       label: "Email",
-      value: "eochieng9448@gmail.com",
+      value: "mikepeace981@gmail.com",
       icon: <Mail className="w-5 h-5" />,
-      action: () => copyToClipboard("eochieng9448@gmail.com", "email"),
+      action: () => copyToClipboard("mikepeace981@gmail.com", "email"),
       copyable: true,
     },
     {
       id: "phone",
       label: "Phone",
-      value: "+254768144877",
+      value: "+254715947256",
       icon: <Phone className="w-5 h-5" />,
       action: () => {
         if (typeof window !== "undefined") {
           if (window.innerWidth <= 768) {
-            window.location.href = "tel:+25476****877";
+            window.location.href = "tel:+25471****256";
           } else {
-            copyToClipboard("+25476****877", "phone");
+            copyToClipboard("+25471****256", "phone");
           }
         } else {
           // Fallback or log if window is not defined (e.g., during SSR if this action could be triggered)
-          copyToClipboard("+25476****877", "phone");
+          copyToClipboard("+25471****256", "phone");
         }
       },
       copyable: true,
@@ -172,25 +184,26 @@ export default function Contact() {
       name: "LinkedIn",
       href:
         process.env.NEXT_PUBLIC_LINKEDIN_URL ||
-        "https://www.linkedin.com/in/ondiek-elijah/",
+        "https://www.linkedin.com/in/mike-mutuku-0a243a1bb//",
       icon: <Linkedin className="w-6 h-6" />,
       description: "Professional network",
-      followers: "2106+ connections",
+      followers: "1000+ connections",
     },
     {
       name: "GitHub",
       href:
-        process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com/elijahondiek",
+        process.env.NEXT_PUBLIC_GITHUB_URL ||
+        "https://github.com/Quantumania23",
       icon: <Github className="w-6 h-6" />,
       description: "Code repositories",
-      followers: "116+ repositories",
+      followers: "90+ repositories",
     },
     {
       name: "Twitter",
-      href: process.env.NEXT_PUBLIC_TWITTER_URL || "https://x.com/0chibo_",
+      href: process.env.NEXT_PUBLIC_TWITTER_URL || "https://x.com/mikepeace981",
       icon: <Twitter className="w-6 h-6" />,
       description: "Tech insights",
-      followers: "2630+ followers",
+      followers: "some followers",
     },
   ];
 
@@ -257,7 +270,7 @@ export default function Contact() {
           </p>
 
           {/* Live Status Indicator */}
-          <div className="flex items-center justify-center space-x-3 glass-card px-6 py-3 rounded-full inline-flex">
+          <div className="items-center justify-center space-x-3 glass-card px-6 py-3 rounded-full inline-flex">
             <div
               className="w-3 h-3 rounded-full animate-pulse"
               style={{ backgroundColor: getStatusColor(availabilityStatus) }}
@@ -391,7 +404,7 @@ export default function Contact() {
               <div>
                 <p className="text-[#b4bcd0] text-sm">Current Role</p>
                 <p className="font-medium">Software Engineer</p>
-                <p className="text-[#00d4ff] text-sm">@ Safaricom PLC</p>
+                <p className="text-[#00d4ff] text-sm">@ Q23 Studdios</p>
               </div>
 
               <div>
@@ -440,9 +453,8 @@ export default function Contact() {
                   Buy Me a Coffee
                 </h4>
                 <p className="text-[var(--text-secondary)] text-base mb-8 leading-relaxed text-center">
-                Thank you for validating my need to make things that probably didn’t need making.
-
-
+                  Thank you for validating my need to make things that probably
+                  didn't need making.
                 </p>
 
                 {/* Strong CTA */}
@@ -450,7 +462,7 @@ export default function Contact() {
                   <GradientMagicButton
                     href={
                       process.env.NEXT_PUBLIC_BUY_ME_A_COFFEE_URL ??
-                      "https://buymeacoffee.com/teksad"
+                      "https://buymeacoffee.com/quantumania23"
                     }
                     className="inline-flex items-center justify-center space-x-2 px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:scale-105 w-full md:w-4/5 text-lg shadow-lg hover:shadow-xl text-white [&_*]:!text-white"
                     accentColor="primary"
@@ -485,23 +497,26 @@ export default function Contact() {
 
               <div className="glass-card pt-16 pb-8 px-8 rounded-2xl hover:scale-[1.02] transition-all duration-500 h-full">
                 <h4 className="font-bold mb-4 text-2xl text-[var(--text-primary)] text-center">
-                  Viber Coder Tips
+                  Articles & Resources
                 </h4>
                 <p className="text-[var(--text-secondary)] text-base mb-8 leading-relaxed text-center">
-                  Master the art of shipping real apps with AI. Get practical
+                  Master the art of shipping apps with ease. Get practical
                   insights and proven strategies.
                 </p>
 
                 {/* Strong CTA */}
                 <div className="space-y-3 flex flex-col items-center">
-                  <GradientMagicButton
-                    href="https://eochieng.gumroad.com/l/awhmp"
-                    className="inline-flex items-center justify-center space-x-2 px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:scale-105 w-full md:w-4/5 text-lg shadow-lg hover:shadow-xl text-white [&_*]:!text-white"
-                    accentColor="secondary"
-                  >
-                    <Zap className="w-6 h-6" />
-                    <span>Level Up Now</span>
-                  </GradientMagicButton>
+                  <Link href="/Articles"
+                   className="w-full md:w-4/5">
+                    <GradientMagicButton
+                     as="button"
+                      className="inline-flex items-center justify-center space-x-2 px-8 py-4 rounded-xl font-bold transition-all duration-300 hover:scale-105 w-full text-lg shadow-lg hover:shadow-xl text-white [&_*]:!text-white cursor-pointer"
+                      accentColor="secondary"
+                    >
+                      <Zap className="w-6 h-6" />
+                      <span>View Articles</span>
+                    </GradientMagicButton>
+                  </Link>
                   <p className="text-xs text-[var(--text-secondary)] text-center">
                     🚀 Transform your coding workflow
                   </p>
@@ -552,10 +567,8 @@ export default function Contact() {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <GradientMagicButton
-                  href={`mailto:${
-                    process.env.NEXT_PUBLIC_EMAIL || "eochieng9448@gmail.com"
-                  }`}
-                  className="inline-flex items-center space-x-2 px-8 py-4 rounded-xl font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl text-white [&_*]:!text-white"
+                  onClick={handleContactPopupOpen}
+                  className="inline-flex items-center space-x-2 px-8 py-4 rounded-xl font-medium transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl text-white [&_*]:!text-white cursor-pointer"
                   accentColor="primary"
                 >
                   <Mail className="w-5 h-5" />
@@ -565,13 +578,22 @@ export default function Contact() {
                 <a
                   href={
                     process.env.NEXT_PUBLIC_LINKEDIN_URL ||
-                    "https://www.linkedin.com/in/ondiek-elijah/"
+                    "https://www.linkedin.com/in/mike-mutuku-0a243a1bb/"
                   }
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 glass-card px-8 py-4 rounded-xl font-medium transition-all duration-300 hover:scale-105 hover:text-[#00d4ff]"
                 >
-                  <Linkedin className="w-5 h-5" />
+                  <Image
+                    src={"/In2.gif"}
+                    alt="Loading..."
+                    width={0}
+                    height={0}
+                    className="w-11 h-11"
+                    priority
+                    unoptimized
+                  />
+                  {/* <Linkedin className="w-5 h-5" /> */}
                   <span>Connect on LinkedIn</span>
                 </a>
               </div>
@@ -579,6 +601,9 @@ export default function Contact() {
           </div>
         </div>
       </div>
+
+      {/* Contact Form Popup */}
+      {isContactPopupOpen && <Contact handleClose={handleContactPopupClose} />}
     </section>
   );
 }

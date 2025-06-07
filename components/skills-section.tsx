@@ -33,6 +33,7 @@ export default function SkillsSection() {
         "Next.js",
         "Node.js",
         "Express.js",
+        "Three.js",
         "Flask",
         "FastAPI",
         "Bootstrap5",

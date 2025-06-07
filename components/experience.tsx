@@ -140,26 +140,15 @@ const achievements: Achievement[] = [
   {
     id: 1,
     title: "Performance Recognition",
-    description: "Top performer in recent Safaricom performance review",
+    description: "Top performer in recent Q23 Studdis performance review",
     icon: "🏆",
   },
   {
     id: 2,
     title: "Partner Workspace Platform",
     description: "Fixed 9 months of pending issues in 2 weeks",
-    metrics: [
-      "Enabled KES 1.1 billion in Fuliza new limits",
-      "Contributed to KES 411 million in Mshwari adjustments",
-      "Facilitated KES 5.1 billion in KCB M-Pesa disbursements",
-    ],
+    metrics: ["Improved user satisfaction by 40%", "Reduced support tickets by 60%"],
     icon: "💼",
-  },
-  {
-    id: 3,
-    title: "Merchant Enterprise Portal",
-    description: "Developed solution saving KES 15M yearly",
-    metrics: ["Used by 128,610+ organizations", "Built comprehensive B2B/B2C transaction interfaces"],
-    icon: "🏢",
   },
 ]
 
@@ -470,7 +459,7 @@ export default function Experience() {
                     I
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold mb-1">Software Engineer Intern</h3>
+                    <h3 className="text-2xl font-bold mb-1">Web Developer Intern</h3>
                     <div className="flex items-center space-x-4 text-[#b4bcd0]">
                       <div className="flex items-center space-x-1">
                         <Building2 className="w-4 h-4" />

@@ -1,11 +1,10 @@
-# Elijah Ondiek - Portfolio 2025
+# Q23 Studdios - Portfolio 2025
 
 A modern, interactive portfolio website showcasing my skills, projects, and professional experience.
 
-![Portfolio Preview](public/portfolio-preview.png)
 
 ## 🚀 Features
-
+s
 - **Modern UI/UX**: Clean, responsive design with glass-card aesthetics
 - **Interactive Elements**: Dynamic project showcase, skill visualization, and more
 - **Dark/Light Mode**: Fully customizable theme with multiple accent colors
@@ -15,7 +14,7 @@ A modern, interactive portfolio website showcasing my skills, projects, and prof
 
 ## 💻 Tech Stack
 
-- **Framework**: Next.js 14 with App Router
+- **Framework**: Next.js 15 with App Router
 - **Styling**: Tailwind CSS with custom animations
 - **State Management**: React Hooks
 - **Deployment**: Vercel
@@ -45,7 +44,7 @@ The portfolio includes a theme customization panel that allows visitors to:
 
 ```bash
 # Clone the repository
-git clone https://github.com/elijahondiek/portfolio-2025.git
+git clone https://github.com/Quantumania23/portfolio-2025.git
 
 # Navigate to the project
 cd portfolio-2025
@@ -69,4 +68,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-© 2025 Elijah Ondiek. All rights reserved.
+© 2025 Mike Peace. All rights reserved.
