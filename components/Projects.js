@@ -1,8 +1,7 @@
 /* eslint-disable react/jsx-no-undef */
-import AnimatedText from '@/Components/AnimatedText';
-import Layout from '@/Components/Layout';
-import CanvasLoader from '@/Components/Loading';
-import TransitionEffect from '@/Components/TransitionEffect';
+import AnimatedText from '@/components/AnimatedText';
+import CanvasLoader from '@/components/Loading';
+import TransitionEffect from '@/components/TransitionEffect';
 import { myProjects } from '@/constants';
 // import DemoComputer from '@/Section/DemoComputer';
 import { useGSAP } from '@gsap/react';

@@ -3,9 +3,9 @@ import emailjs from "@emailjs/browser";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF, useAnimations } from "@react-three/drei";
 import { useMediaQuery } from "react-responsive";
-import Alert from "@/Components/Alert";
+import Alert from "@/components/Alert";
 import UseAlert from "@/hooks/UseAlert";
-import AnimatedText from "@/Components/AnimatedText";
+import AnimatedText from "@/components/AnimatedText";
 
 // Fox Component with corrected path
 const Fox = ({ currentAnimation, ...props }) => {

@@ -1,5 +1,4 @@
-import AnimatedText from "@/Components/AnimatedText";
-import Layout from "@/Components/Layout";
+import AnimatedText from "@/components/AnimatedText";
 import React, { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -11,7 +10,7 @@ import article3 from "../../public/images/articles/form validation in reactjs us
 import article4 from "../../public/images/articles/create modal component in react using react portals.png";
 import article5 from "../../public/images/articles/create loading screen in react js.jpg";
 import article6 from "../../public/images/articles/What is higher order component in React.jpg";
-import TransitionEffect from "@/Components/TransitionEffect";
+import TransitionEffect from "@/components/TransitionEffect";
 
 const FramerImage = motion(Image);
 
