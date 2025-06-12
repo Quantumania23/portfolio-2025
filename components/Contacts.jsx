@@ -10,13 +10,11 @@ import AnimatedText from "@/components/AnimatedText";
 // Fox Component with corrected path
 const Fox = ({ currentAnimation, ...props }) => {
   const group = useRef();
-  // Use the correct path for Next.js public folder
   const { nodes, materials, animations } = useGLTF("/Models/fox.glb");
   const { actions } = useAnimations(animations, group);
 
   useEffect(() => {
     Object.values(actions).forEach((action) => action?.stop());
-
     if (actions[currentAnimation]) {
       actions[currentAnimation].play();
     }
@@ -61,7 +59,6 @@ const Fox = ({ currentAnimation, ...props }) => {
                     material={materials["Material.017"]}
                     skeleton={nodes.Object_11.skeleton}
                   />
-                  <group name="Cube002_26" />
                 </group>
               </group>
             </group>
@@ -72,7 +69,6 @@ const Fox = ({ currentAnimation, ...props }) => {
   );
 };
 
-// Fallback component in case the GLB fails to load
 const FallbackModel = () => {
   const meshRef = useRef();
   
@@ -88,13 +84,9 @@ const FallbackModel = () => {
   }, []);
 
   return (
-    <mesh ref={meshRef} position={[0, 0, 0]}>
+    <mesh ref={meshRef}>
       <boxGeometry args={[1.5, 1.5, 1.5]} />
-      <meshStandardMaterial 
-        color="#00c6ff" 
-        metalness={0.7}
-        roughness={0.3}
-      />
+      <meshStandardMaterial color="#00c6ff" metalness={0.7} roughness={0.3} />
     </mesh>
   );
 };
@@ -107,7 +99,6 @@ const Contact = ({ handleClose }) => {
   const [modelError, setModelError] = useState(false);
   const { alert, showAlert, hideAlert } = UseAlert();
 
-  // Responsive breakpoints
   const isDesktop = useMediaQuery({ minWidth: 1024 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 });
   const isMobile = useMediaQuery({ maxWidth: 767 });
@@ -116,13 +107,13 @@ const Contact = ({ handleClose }) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setisLoading(true);
-    setCurrentAnimation("walk"); // Change fox animation when sending
+    setCurrentAnimation("walk");
 
-    emailjs
-      .send(
+    try {
+      await emailjs.send(
         'service_rfb2t5f',
         'template_gjgq5ws',
         {
@@ -132,108 +123,80 @@ const Contact = ({ handleClose }) => {
           to_email: "mikepeace981@gmail.com",
           message: form.message,
         },
-        'aBMbA5GZxqC_qCD_n',
-      )
-      .then(() => {
-        setisLoading(false);
-        setCurrentAnimation("hit"); // Success animation
-        showAlert({
-          show: true,
-          text: "Message sent successfully 😃!",
-          type: "success",
-        });
+        'aBMbA5GZxqC_qCD_n'
+      );
 
-        setTimeout(() => {
-          hideAlert();
-          setForm({ name: "", email: "", message: "" });
-          setCurrentAnimation("idle");
-          handleClose();
-        }, 3000);
-      })
-      .catch((error) => {
-        setisLoading(false);
-        setCurrentAnimation("idle");
-        console.log(error);
-
-        showAlert({
-          show: true,
-          text: "I did not receive your message 😢",
-          type: "danger",
-        });
+      setisLoading(false);
+      setCurrentAnimation("hit");
+      showAlert({
+        show: true,
+        text: "Message sent successfully 😃!",
+        type: "success",
       });
-  };
 
-  // Get responsive configurations
-  const getResponsiveConfig = () => {
-    if (isMobile) {
-      return {
-        containerClass: "max-w-sm",
-        gridClass: "grid-cols-1 gap-4",
-        modelHeight: "h-48",
-        textSize: "text-lg md:text-xl",
-        foxScale: [0.5, 0.5, 0.5],
-        foxPosition: [0, 0.2, 0],
-        cameraPosition: [0, 0, 6],
-        fov: 50
-      };
-    } else if (isTablet) {
-      return {
-        containerClass: "max-w-3xl",
-        gridClass: "grid-cols-1 gap-6",
-        modelHeight: "h-56",
-        textSize: "text-xl md:text-2xl",
-        foxScale: [0.6, 0.6, 0.6],
-        foxPosition: [0, 0.2, 0],
-        cameraPosition: [0, 0, 7],
-        fov: 45
-      };
-    } else {
-      return {
-        containerClass: "max-w-4xl",
-        gridClass: "grid-cols-1 lg:grid-cols-2 gap-8",
-        modelHeight: "h-64 lg:h-full min-h-[300px]",
-        textSize: "text-2xl md:text-3xl",
-        foxScale: [0.8, 0.8, 0.8],
-        foxPosition: [0, 0.2, 0],
-        cameraPosition: [0, 0, 8],
-        fov: 45
-      };
+      setTimeout(() => {
+        hideAlert();
+        setForm({ name: "", email: "", message: "" });
+        setCurrentAnimation("idle");
+        handleClose();
+      }, 3000);
+
+    } catch (error) {
+      setisLoading(false);
+      setCurrentAnimation("idle");
+      console.error(error);
+      showAlert({
+        show: true,
+        text: "I did not receive your message 😢",
+        type: "danger",
+      });
     }
   };
 
+  const getResponsiveConfig = () => ({
+    containerClass: isMobile ? "max-w-sm" : isTablet ? "max-w-3xl" : "max-w-4xl",
+    gridClass: isMobile ? "grid-cols-1 gap-4" : isTablet ? "grid-cols-1 gap-6" : "grid-cols-1 lg:grid-cols-2 gap-8",
+    modelHeight: isMobile ? "h-48" : isTablet ? "h-56" : "h-64 lg:h-full min-h-[300px]",
+    textSize: isMobile ? "text-lg md:text-xl" : isTablet ? "text-xl md:text-2xl" : "text-2xl md:text-3xl",
+    foxScale: isMobile ? [0.5, 0.5, 0.5] : isTablet ? [0.6, 0.6, 0.6] : [0.8, 0.8, 0.8],
+    foxPosition: [0, 0.2, 0],
+    cameraPosition: isMobile ? [0, 0, 6] : isTablet ? [0, 0, 7] : [0, 0, 8],
+    fov: isMobile ? 50 : 45
+  });
+
   const config = getResponsiveConfig();
 
-  const handleFocus = () => {
-    setCurrentAnimation("walk");
-  };
-  
-  const handleBlur = () => {
-    setCurrentAnimation("idle");
-  };
+  const handleFocus = () => setCurrentAnimation("walk");
+  const handleBlur = () => setCurrentAnimation("idle");
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
-      <div className={`bg-white dark:bg-gray-900 w-full ${config.containerClass} p-6 md:p-8 rounded-lg relative max-h-[90vh] overflow-y-auto`}>
-        {/* Fixed X button - now always visible */}
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+      <div className={`w-full ${config.containerClass} p-6 md:p-8 rounded-lg relative max-h-[90vh] overflow-y-auto
+        bg-white dark:bg-gray-900 shadow-xl`}>
         <button
           onClick={handleClose}
-          className="absolute top-4 right-4 text-2xl font-bold text-gray-800 dark:text-white cursor-pointer focus:outline-none hover:text-red-500 transition-colors z-10 w-8 h-8 flex items-center justify-center"
+          className="absolute top-4 right-4 text-2xl font-bold cursor-pointer z-10 w-8 h-8 
+            flex items-center justify-center rounded-full
+            text-gray-700 dark:text-gray-300 
+            hover:text-red-500 dark:hover:text-red-400
+            transition-colors duration-200"
           aria-label="Close modal"
         >
           ✕
         </button>
         
-        {/* Animated Header Text */}
         <div className="text-center mb-6">
           <AnimatedText 
             text="Turning Vision Into Reality With Code And Design"
-            className={`${config.textSize} font-bold text-gray-800 dark:text-white`}
+            className={`${config.textSize} font-bold text-primary light:text-primary`}
           />
         </div>
 
         <div className={`grid ${config.gridClass}`}>
-          {/* 3D Fox Model - Always on top for mobile */}
-          <div className={`${config.modelHeight} rounded-lg overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-700 ${isMobile ? 'order-1' : isTablet ? 'order-1' : ''}`}>
+          <div className={`${config.modelHeight} rounded-lg overflow-hidden 
+            bg-gradient-to-br from-blue-50 to-indigo-100 
+            dark:from-gray-800 dark:to-gray-700
+            ${isMobile || isTablet ? 'order-1' : ''}`}>
             <Canvas
               camera={{ position: config.cameraPosition, fov: config.fov }}
               className="w-full h-full"
@@ -242,11 +205,7 @@ const Contact = ({ handleClose }) => {
             >
               <Suspense fallback={<FallbackModel />}>
                 <ambientLight intensity={0.7} />
-                <directionalLight 
-                  position={[5, 5, 5]} 
-                  intensity={0.8}
-                  castShadow
-                />
+                <directionalLight position={[5, 5, 5]} intensity={0.8} castShadow />
                 <pointLight position={[-5, 5, 5]} intensity={0.3} />
                 {!modelError ? (
                   <Fox 
@@ -260,7 +219,7 @@ const Contact = ({ handleClose }) => {
                 )}
                 <OrbitControls 
                   enablePan={false}
-                  enableZoom={isMobile ? false : false}
+                  enableZoom={false}
                   enableDamping={true}
                   dampingFactor={0.05}
                   maxPolarAngle={Math.PI / 1.8}
@@ -274,18 +233,26 @@ const Contact = ({ handleClose }) => {
             </Canvas>
           </div>
 
-          {/* Contact Form - Below model on mobile/tablet */}
-          <div className={`flex flex-col ${isMobile ? 'order-2' : isTablet ? 'order-2' : ''}`}>
+          <div className={`flex flex-col ${isMobile || isTablet ? 'order-2' : ''}`}>
             {alert.show && <Alert {...alert} />}
 
-            <form className={`w-full flex flex-col ${isMobile ? 'gap-4' : 'gap-6'} mt-4`} onSubmit={handleSubmit} ref={formRef}>
-              <label className="text-gray-700 dark:text-gray-300 font-semibold">
+            <form 
+              className={`w-full flex flex-col ${isMobile ? 'gap-4' : 'gap-6'} mt-4`}
+              onSubmit={handleSubmit} 
+              ref={formRef}
+            >
+              <label className="text-gray-900 dark:text-gray-100 font-semibold">
                 Name
                 <input
                   type="text"
                   name="name"
-                  className={`bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ${isMobile ? 'p-2' : 'p-2.5'} mt-2.5 font-normal shadow-card`}
-                  placeholder="John"
+                  className="mt-2.5 w-full px-4 py-2 text-gray-900 dark:text-white
+                    bg-gray-50 dark:bg-gray-800
+                    border border-gray-300 dark:border-gray-600
+                    rounded-lg shadow-sm
+                    focus:ring-2 focus:ring-blue-500 focus:border-transparent
+                    placeholder:text-gray-400 dark:placeholder:text-gray-500"
+                  placeholder="John Doe"
                   required
                   value={form.name}
                   onChange={handleChange}
@@ -294,13 +261,18 @@ const Contact = ({ handleClose }) => {
                 />
               </label>
               
-              <label className="text-gray-700 dark:text-gray-300 font-semibold">
+              <label className="text-gray-900 dark:text-gray-100 font-semibold">
                 Email
                 <input
                   type="email"
                   name="email"
-                  className={`bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ${isMobile ? 'p-2' : 'p-2.5'} mt-2.5 font-normal shadow-card`}
-                  placeholder="johndoe@gmail.com"
+                  className="mt-2.5 w-full px-4 py-2 text-gray-900 dark:text-white
+                    bg-gray-50 dark:bg-gray-800
+                    border border-gray-300 dark:border-gray-600
+                    rounded-lg shadow-sm
+                    focus:ring-2 focus:ring-blue-500 focus:border-transparent
+                    placeholder:text-gray-400 dark:placeholder:text-gray-500"
+                  placeholder="johndoe@example.com"
                   required
                   value={form.email}
                   onChange={handleChange}
@@ -309,14 +281,20 @@ const Contact = ({ handleClose }) => {
                 />
               </label>
               
-              <label className="text-gray-700 dark:text-gray-300 font-semibold">
+              <label className="text-gray-900 dark:text-gray-100 font-semibold">
                 Cast your Message
                 <textarea
                   name="message"
-                  className={`block ${isMobile ? 'p-2' : 'p-2.5'} w-full text-sm text-gray-900 dark:text-white bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 mt-2.5 font-normal shadow-card resize-none`}
-                  placeholder="Let me know how I can help you"
+                  className="mt-2.5 w-full px-4 py-2 text-gray-900 dark:text-white
+                    bg-gray-50 dark:bg-gray-800
+                    border border-gray-300 dark:border-gray-600
+                    rounded-lg shadow-sm
+                    focus:ring-2 focus:ring-blue-500 focus:border-transparent
+                    placeholder:text-gray-400 dark:placeholder:text-gray-500
+                    resize-none"
+                  placeholder="Let me know how I can help you..."
                   required
-                  rows={isMobile ? "3" : "4"}
+                  rows={isMobile ? 3 : 4}
                   value={form.message}
                   onChange={handleChange}
                   onFocus={handleFocus}
@@ -326,8 +304,15 @@ const Contact = ({ handleClose }) => {
 
               <button
                 type="submit"
-                className={`text-white bg-gradient-to-r from-[#00c6ff] to-[#0072ff] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full ${isMobile ? 'px-4 py-2' : 'sm:w-auto px-5 py-2.5'} text-center disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-lg`}
                 disabled={isLoading}
+                className="w-full px-6 py-3 text-sm font-medium text-white
+                  bg-gradient-to-r from-[#00c6ff] to-[#0072ff]
+                  hover:from-[#0072ff] hover:to-[#00c6ff]
+                  rounded-lg shadow-sm
+                  transition-all duration-300
+                  disabled:opacity-50 disabled:cursor-not-allowed
+                  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+                  dark:focus:ring-offset-gray-900"
               >
                 {isLoading ? "Sending..." : "Cognize"}
               </button>

@@ -5,9 +5,11 @@ import Link from "next/link"
 import { Github, Linkedin, Twitter, Mail, Sun, Moon, Heart, Wifi } from "lucide-react"
 import { useTheme } from "next-themes"
 import Image from "next/image"
+import Contact from "@/components/Contacts"
 
 export default function Footer() {
   
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear())
   const { theme, setTheme } = useTheme()
   const [pageLoadTime, setPageLoadTime] = useState<number | null>(null)
@@ -105,15 +107,22 @@ export default function Footer() {
     { name: "Experience", href: "#experience" },
     { name: "Projects", href: "#projects" },
     { name: "Contact", href: "#contact" },
-    { name: "Articles", href: "#articles" },
+    { name: "Articles", href: "/Articles" },
   ]
 
   const socialLinks = [
     { name: "GitHub", href: process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com/Quantumania23", icon: <Github className="w-5 h-5" /> },
     { name: "LinkedIn", href: process.env.NEXT_PUBLIC_LINKEDIN_URL || "https://www.linkedin.com/in/mike-mutuku-0a243a1bb/", icon: <Image src={'/In.gif'} alt="LinkedIn" width={1} height={1} className="w-6 h-6" /> },
     { name: "Twitter", href: process.env.NEXT_PUBLIC_TWITTER_URL || "https://x.com/Mikepeace981", icon: <Twitter className="w-5 h-5" /> },
-    { name: "Email", href: `mailto:${process.env.NEXT_PUBLIC_EMAIL || "mikepeace981@gmail.com"}`, icon: <Image src={'/Email.gif'} alt="Email" width={1} height={1} className="w-5 h-5" /> },
-  ]
+    // { name: "Email", href: `mailto:${process.env.NEXT_PUBLIC_EMAIL || "mikepeace981@gmail.com"}`, icon: <Image src={'/Email.gif'} alt="Email" width={1} height={1} className="w-5 h-5" /> },
+
+   {
+      name: "Email",
+      onClick: () => setIsContactPopupOpen(true),
+      icon: <Image src={'/Email.gif'} alt="Email" width={1} height={1} className="w-5 h-5" />
+    },
+  ];
+
 
   return (
     <footer className="py-12 px-6 relative">
@@ -175,21 +184,32 @@ export default function Footer() {
 
             {/* Connect */}
             <div>
-              <h3 className="font-bold mb-4">Connect</h3>
               <div className="flex space-x-3 mb-6">
-                {socialLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="glass-card p-2 rounded-lg hover:text-[#00d4ff] transition-all duration-300 hover:scale-110"
-                    aria-label={link.name}
-                  >
-                    {link.icon}
-                  </a>
-                ))}
-              </div>
+    {socialLinks.map((link) =>
+      link.name === "Email" ? (
+        <button
+          key={link.name}
+          onClick={link.onClick}
+          className="glass-card p-2 rounded-lg hover:text-[#00d4ff] transition-all duration-300 hover:scale-110"
+          aria-label={link.name}
+          type="button"
+        >
+          {link.icon}
+        </button>
+      ) : (
+        <a
+          key={link.name}
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="glass-card p-2 rounded-lg hover:text-[#00d4ff] transition-all duration-300 hover:scale-110"
+          aria-label={link.name}
+        >
+          {link.icon}
+        </a>
+      )
+    )}
+  </div>
 
               {/* Theme Toggle */}
               <button
@@ -224,6 +244,10 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      {/* Render the popup */}
+  {isContactPopupOpen && (
+    <Contact handleClose={() => setIsContactPopupOpen(false)} />
+  )}
     </footer>
   )
 }

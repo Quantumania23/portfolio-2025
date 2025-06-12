@@ -10,6 +10,67 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  
+     .custom-bg {
+      @apply bg-background/20 border border-accent/30 border-solid backdrop-blur-[6px] shadow-glass-inset hover:shadow-glass-sm;
+    }
+    .c-space {
+      @apply sm:px-10 px-5;
+    }
+    .head-text {
+      @apply sm:text-4xl text-3xl font-semibold text-gray_gradient;
+    }
+    .text-gray_gradient {
+      @apply bg-gradient-to-r from-[#BEC1CF] from-60% via-[#D5D8EA] via-60% to-[#D5D8EA] to-100% bg-clip-text text-transparent;
+    }
+    /* projects section  */
+    .arrow-btn {
+      @apply w-10 h-10 p-3 cursor-pointer active:scale-95 transition-all rounded-full arrow-gradient;
+    }
+  
+    .tech-logo {
+      @apply w-10 h-10 rounded-md p-2 bg-neutral-100 bg-opacity-10 backdrop-filter backdrop-blur-lg flex justify-center items-center;
+    }
+     /* work experience section */
+     .work-container {
+      @apply grid grid-cols-3;
+    }
+    .work-canvas {
+      @apply h-auto w-auto lg:h-fit lg:w-fit md:h-auto md:w-fit sm:h-auto sm:w-fit xs:hidden
+    }
+    .work-content {
+      @apply col-span-2 rounded-lg bg-black-200 border border-black-300 h-fit xs:w-fit;
+    }
+  
+    .work-content_container {
+      @apply grid grid-cols-[auto_1fr] items-start gap-5  transition-all ease-in-out duration-500 cursor-pointer hover:bg-black-300 rounded-lg sm:px-5 px-2.5;
+    }
+  
+    .work-content_logo {
+      @apply rounded-3xl w-16 h-16 p-2 bg-black-600 xs:w-7 xs:h-7;
+    }
+  
+    .work-content_bar {
+      @apply flex-1 w-0.5 mt-4 h-full bg-black-300 group-hover:bg-black-500 group-last:hidden;
+    }
+  
+  /* button component */
+  .btn {
+    @apply flex gap-4 items-center justify-center cursor-pointer p-3 rounded-md bg-black-300  transition-all active:scale-95 text-white mx-auto;
+  }
+
+  .btn-ping {
+    @apply animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75;
+  }
+
+  .btn-ping_dot {
+    @apply relative inline-flex rounded-full h-3 w-3 bg-green-500;
+  }
+
+  /* hero section */
+  .hero_tag {
+    @apply text-center xl:text-6xl md:text-5xl sm:text-4xl text-3xl  font-black !leading-normal;
+  }
 }
 
 @layer base {
@@ -92,3 +153,4 @@ body {
     @apply bg-background text-foreground;
   }
 }
+

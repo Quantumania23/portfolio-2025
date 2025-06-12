@@ -15,8 +15,10 @@ import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 import GradientMagicButton from "./gradient-magic-button";
 import Image from "next/image";
+import Contact from "@/components/Contacts";
 
 export default function Navigation() {
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [scrolled, setScrolled] = useState(false);
@@ -41,44 +43,41 @@ export default function Navigation() {
 
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-      
+
       // Detect which section is currently in view
-      const sections = navLinks.map(link => link.href.substring(1));
-      
-      // Find the section that is currently in view
-      const currentSection = sections.find(section => {
+      const sections = navLinks.map((link) => link.href.substring(1));
+      const currentSection = sections.find((section) => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          // Consider a section in view if its top is near the top of the viewport
-          // or if we're scrolled within the section
-          return (rect.top <= 150 && rect.bottom >= 150);
+          return rect.top <= 150 && rect.bottom >= 150;
         }
         return false;
       });
-      
+
       if (currentSection) {
         setActiveSection(currentSection);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
-    // Initial check when component mounts
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [navLinks, isMounted]);
 
-  // Theme is handled by ThemeCustomizationPanel
-
   const socialLinks = [
     {
       name: "GitHub",
-      href: process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com/Quantumania23",
+      href:
+        process.env.NEXT_PUBLIC_GITHUB_URL ||
+        "https://github.com/Quantumania23",
       icon: <Github className="w-5 h-5" />,
     },
     {
       name: "LinkedIn",
-      href: process.env.NEXT_PUBLIC_LINKEDIN_URL || "https://www.linkedin.com/in/mike-mutuku-0a243a1bb/",
+      href:
+        process.env.NEXT_PUBLIC_LINKEDIN_URL ||
+        "https://www.linkedin.com/in/mike-mutuku-0a243a1bb/",
       icon: <Linkedin className="w-5 h-5" />,
     },
     {
@@ -88,7 +87,7 @@ export default function Navigation() {
     },
     {
       name: "Email",
-      href: `mailto:${process.env.NEXT_PUBLIC_EMAIL || "mikepeace023@icloud.com"}`,
+      onClick: () => setIsContactPopupOpen(true),
       icon: <Mail className="w-5 h-5" />,
     },
   ];
@@ -102,6 +101,7 @@ export default function Navigation() {
     >
       <div className="container mx-auto px-6">
         <nav className="relative flex items-center justify-between glass-card p-4">
+          {/* Logo */}
           <Link
             href="#home"
             className={cn(
@@ -125,8 +125,7 @@ export default function Navigation() {
               height={40}
               alt="Logo"
               priority
-            >  
-            </Image>
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -135,7 +134,7 @@ export default function Navigation() {
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <Link
-                    href={link.href}
+                    href={link.href ?? "#"}
                     className={cn(
                       "text-sm font-medium transition-all duration-300",
                       "hover:text-accent-primary",
@@ -153,30 +152,49 @@ export default function Navigation() {
               ))}
             </ul>
 
+            {/* Desktop Social Links */}
             <div className="flex items-center space-x-4">
-              {socialLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className={cn(
-                    "transition-all duration-300 hover:scale-105",
-                    theme === "light"
-                      ? "text-muted-foreground hover:text-primary"
-                      : "text-text-secondary hover:text-[#00d4ff]"
-                  )}
-                  aria-label={link.name}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {link.icon}
-                </Link>
-              ))}
-
-              {/* Theme toggle removed - handled by ThemeCustomizationPanel */}
+              {socialLinks.map((link) =>
+                link.name === "Email" ? (
+                  <button
+                    key={link.name}
+                    onClick={link.onClick}
+                    className={cn(
+                      "transition-all duration-300 hover:scale-105",
+                      theme === "light"
+                        ? "text-muted-foreground hover:text-primary"
+                        : "text-text-secondary hover:text-[#00d4ff]"
+                    )}
+                    aria-label={link.name}
+                    type="button"
+                  >
+                    {link.icon}
+                  </button>
+                ) : (
+                  <Link
+                    key={link.name}
+                    href={link.href ?? "#"}
+                    className={cn(
+                      "transition-all duration-300 hover:scale-105",
+                      theme === "light"
+                        ? "text-muted-foreground hover:text-primary"
+                        : "text-text-secondary hover:text-[#00d4ff]"
+                    )}
+                    aria-label={link.name}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {link.icon}
+                  </Link>
+                )
+              )}
             </div>
 
             <GradientMagicButton
-              href={process.env.NEXT_PUBLIC_RESUME_LINK || "https://docs.google.com/document/d/1AOGztSR1ueyTft4dnFpBEes6r7cZpq-hEw53EDtiG6M/edit?usp=sharing"}
+              href={
+                process.env.NEXT_PUBLIC_RESUME_LINK ||
+                "https://docs.google.com/document/d/1AOGztSR1ueyTft4dnFpBEes6r7cZpq-hEw53EDtiG6M/edit?usp=sharing"
+              }
               className={cn(
                 "inline-flex items-center space-x-2 px-4 py-2 rounded-xl font-medium text-sm transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl text-white [&_*]:!text-white"
               )}
@@ -217,7 +235,7 @@ export default function Navigation() {
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <Link
-                    href={link.href}
+                    href={link.href ?? "#"}
                     className={cn(
                       "block text-sm font-medium transition-all duration-300",
                       theme === "light"
@@ -242,28 +260,55 @@ export default function Navigation() {
               ))}
             </ul>
 
+            {/* Mobile Social Links */}
             <div className="flex items-center space-x-4 mb-6">
-              {socialLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className={cn(
-                    "transition-all duration-300 hover:scale-105",
-                    theme === "light"
-                      ? "text-muted-foreground hover:text-primary"
-                      : "text-text-secondary hover:text-[#00d4ff]"
-                  )}
-                  aria-label={link.name}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {link.icon}
-                </Link>
-              ))}
+              {socialLinks.map((link) =>
+                link.name === "Email" ? (
+                  <button
+                    key={link.name}
+                    onClick={() => {
+                      setIsContactPopupOpen(true);
+                      setIsOpen(false); // Optionally close the mobile menu when opening popup
+                    }}
+                    className={cn(
+                      "transition-all duration-300 hover:scale-105",
+                      theme === "light"
+                        ? "text-muted-foreground hover:text-primary"
+                        : "text-text-secondary hover:text-[#00d4ff]"
+                    )}
+                    aria-label={link.name}
+                    type="button"
+                  >
+                    {link.icon}
+                  </button>
+                ) : (
+                  <Link
+                    key={link.name}
+                    href={link.href ?? "#"}
+                    className={cn(
+                      "transition-all duration-300 hover:scale-105",
+                      theme === "light"
+                        ? "text-muted-foreground hover:text-primary"
+                        : "text-text-secondary hover:text-[#00d4ff]"
+                    )}
+                    aria-label={link.name}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {link.icon}
+                  </Link>
+                )
+              )}
             </div>
+            {isContactPopupOpen && (
+              <Contact handleClose={() => setIsContactPopupOpen(false)} />
+            )}
 
             <GradientMagicButton
-              href={process.env.NEXT_PUBLIC_RESUME_LINK || "https://docs.google.com/document/d/1AOGztSR1ueyTft4dnFpBEes6r7cZpq-hEw53EDtiG6M/edit?usp=sharing"}
+              href={
+                process.env.NEXT_PUBLIC_RESUME_LINK ||
+                "https://docs.google.com/document/d/1AOGztSR1ueyTft4dnFpBEes6r7cZpq-hEw53EDtiG6M/edit?usp=sharing"
+              }
               className={cn(
                 "inline-flex items-center space-x-2 w-full justify-center px-4 py-2 rounded-xl font-medium text-sm transition-all duration-300 hover:scale-105",
                 theme === "light"
@@ -280,6 +325,10 @@ export default function Navigation() {
           </div>
         )}
       </div>
+      {/* Popup for both desktop and mobile */}
+      {isContactPopupOpen && (
+        <Contact handleClose={() => setIsContactPopupOpen(false)} />
+      )}
     </header>
   );
 }

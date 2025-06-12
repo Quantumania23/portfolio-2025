@@ -207,7 +207,7 @@ export default function Hero() {
               className="text-5xl md:text-7xl font-bold tracking-tight text-[var(--text-primary)] pb-1"
               variants={itemVariants}
             >
-              Q23 Studdios
+              Mike Peace
             </motion.h1>
           </div>
 

@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   darkMode: ["class"],
@@ -13,6 +13,10 @@ const config: Config = {
       center: true,
       padding: "2rem",
       screens: {
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
         "2xl": "1400px",
       },
     },
@@ -57,16 +61,22 @@ const config: Config = {
           primary: "#ffffff",
           secondary: "#b4bcd0",
         },
+        icons: {
+        dark: "#1b1b1b",
+        light: "#f5f5f5",
+        primary: "#b63E96",
+        primaryDark: "#58E6D9",
+      },
         glass: "rgba(255,255,255,0.1)",
       },
-lightModeContrast: {
-  color: "#1a1a1a",
-},
-"glass-card": {
-  background: "rgba(255, 255, 255, 0.05)",
-  backdropFilter: "blur(8px)",
-  border: "1px solid rgba(255, 255, 255, 0.1)",
-},
+      lightModeContrast: {
+        color: "#1a1a1a",
+      },
+      "glass-card": {
+        background: "rgba(255, 255, 255, 0.05)",
+        backdropFilter: "blur(8px)",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -153,9 +163,41 @@ lightModeContrast: {
         bounce: "bounce 2s infinite",
         fadeIn: "fadeIn 0.3s ease-in-out",
       },
+       backgroundImaged:{
+         'firefly-radial': "radial-gradient(50% 50% at 50% 50%, rgba(253, 255, 80, 0.5) 0%, rgba(217,217,217, 0) 100%)"
+       },
+       boxShadow:{
+         'glass-inset': 'inset 0 17px 5px -9px rgba(254,254,91, 0.05)',
+         'glass-sm': '5px 5px 20px 0px rgba(254,254,91, 0.3)',
+       },
+       backgroundImage: {
+         circularLight:
+             "repeating-radial-gradient(rgba(0,0,0,0.4) 2px,#f5f5f5 5px,#f5f5f5 100px)",
+    
+         circularDark:
+             "repeating-radial-gradient(rgba(255,255,255,0.5) 2px,#1b1b1b 8px,#1b1b1b 100px)",
+    
+         circularLightLg:
+             "repeating-radial-gradient(rgba(0,0,0,0.4) 2px,#f5f5f5 5px,#f5f5f5 80px)",
+    
+         circularDarkLg:
+             "repeating-radial-gradient(rgba(255,255,255,0.5) 2px,#1b1b1b 8px,#1b1b1b 80px)",
+    
+         circularLightMd:
+             "repeating-radial-gradient(rgba(0,0,0,0.4) 2px,#f5f5f5 5px,#f5f5f5 60px)",
+    
+         circularDarkMd:
+             "repeating-radial-gradient(rgba(255,255,255,0.5) 2px,#1b1b1b 6px,#1b1b1b 60px)",
+    
+         circularLightSm:
+             "repeating-radial-gradient(rgba(0,0,0,0.4) 2px,#f5f5f5 5px,#f5f5f5 40px)",
+    
+         circularDarkSm:
+             "repeating-radial-gradient(rgba(255,255,255,0.5) 2px,#1b1b1b 4px,#1b1b1b 40px)",
+     },   
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};
 
-export default config
+export default config;
