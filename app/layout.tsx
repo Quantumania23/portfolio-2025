@@ -94,8 +94,8 @@ const baseUrl = isProduction
       card: 'summary_large_image',
       title: "Mike Peace | Software Engineer",
       description: "Professional software engineer specializing in modern web technologies, scalable full-stack solutions, and clean architecture.",
-      creator: '@0chibo_',
-      site: '@0chibo_',
+      creator: '@Mikepeace981',
+      site: '@Mikepeace981',
       images: [
         {
           url: '/og-image.jpg',
