@@ -22,7 +22,7 @@ export default function SkillsSection() {
       name: "Languages",
       icon: <Languages className="w-4 h-4" />,
       color: "bg-blue-500",
-      skills: ["HTML5", "CSS3", "Python", "JavaScript (ES6)", "TypeScript", "GraphQL", "SQL"],
+      skills: ["HTML5", "CSS3", "Python", "JavaScript (ES6)", "TypeScript", "GraphQL", "MongoDB", "Node.js", "SQL"],
     },
     {
       name: "Frameworks & Libraries",
@@ -33,6 +33,8 @@ export default function SkillsSection() {
         "Next.js",
         "Node.js",
         "Express.js",
+        "C++",
+        "Unreal Engine",
         "Three.js",
         "Flask",
         "FastAPI",

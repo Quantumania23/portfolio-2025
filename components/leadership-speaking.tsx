@@ -99,12 +99,12 @@ const communityRoles: CommunityRole[] = [
 const education: Education[] = [
   {
     id: 1,
-    degree: "Bachelor of Business and Information Technology",
-    honors: "Second Class Upper Honours",
-    institution: "Murang'a University of Technology",
-    duration: "2018 - 2022",
+    degree: "Diploma in Software Engineering",
+    honors: "With Distinction",
+    institution: "Nairobits Trust",
+    duration: "2022 - 2023",
     description:
-      "Comprehensive program combining business acumen with technical expertise in information technology, software development, and systems analysis.",
+      "Comprehensive program combining business acumen with technical expertise in information technology, software development, multidisciplinary design and systems analysis.",
   },
 ]
 

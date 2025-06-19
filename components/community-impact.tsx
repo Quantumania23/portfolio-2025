@@ -153,15 +153,15 @@ const communityRoles: CommunityRole[] = [
 const volunteeringActivities: VolunteeringActivity[] = [
   {
     id: 1,
-    title: "Mentor & Graphic Designer",
-    organization: "Lux Tech Academy",
-    duration: "July 2020 - Present",
-    focus: "Mentoring students in technology and design",
+    title: "Youth leader & Graphic Designer",
+    organization: "Deliverance Church Kariobangi",
+    duration: "July 2022 - Present",
+    focus: "Empowering youthful minds in technology and design",
     description:
-      "Serving as a graphic designer for Lux Tech Academy for over 1.5 years, guiding students in software development and design principles. Created visual assets for educational content and marketing materials.",
-    impact: "Boosted social media engagement with consistent, professional design assets that strengthened Lux Tech Academy's brand presence",
+      "Serving as a graphic designer for Deliverance Church for over 1.5 years, guiding youths in software development and design principles. Created visual assets for educational content and marketing materials.",
+    impact: "Boosted social media engagement with consistent, professional design assets that strengthened the Church's brand presence",
     icon: "🎨",
-    logo: "/lux-tech-academy-logo.webp",
+    logo: "https://maps.app.goo.gl/rAzb7HT7wUK16LL89",
   },
   {
     id: 2,
@@ -178,12 +178,12 @@ const volunteeringActivities: VolunteeringActivity[] = [
   {
     id: 3,
     title: "Author",
-    organization: "freeCodeCamp",
-    duration: "September 2021 - December 2022",
+    organization: "freeCodeCamp & Medium",
+    duration: "September 2022 - Present",
     focus: "Educational content creation",
     description:
       "Created in-depth technical tutorials and articles for freeCodeCamp's publication, focusing on web development, Python, and cloud technologies. Contributed to making technical education accessible to learners worldwide.",
-    impact: "Published 2 articles with over 50,000 combined views",
+    impact: "Published 2 articles with a substantial amount of views",
     icon: "📝",
     logo: "/freeCodeCamp-logo.png",
   },

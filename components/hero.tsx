@@ -21,24 +21,24 @@ export default function Hero() {
   // Floating achievements data with improved colors and styling
   const achievements = [
    
-    // {
-    //   icon: "💰",
-    //   value: "KES 1.1B+",
-    //   label: "Business Impact",
-    //   bgColor: "bg-blue-900/90",
-    //   borderColor: "border-blue-500",
-    //   iconBg: "bg-blue-700",
-    //   delay: 0.2, // Restored delay
-    // },
-    // {
-    //   icon: "🏢",
-    //   value: "128K+",
-    //   label: "Organizations Served",
-    //   bgColor: "bg-emerald-900/90",
-    //   borderColor: "border-emerald-500",
-    //   iconBg: "bg-emerald-700",
-    //   delay: 0.4, // Restored delay
-    // },
+    {
+      icon: "💰",
+      value: "KES 1.1B+",
+      label: "Business Impact",
+      bgColor: "bg-blue-900/90",
+      borderColor: "border-blue-500",
+      iconBg: "bg-blue-700",
+      delay: 0.2, // Restored delay
+    },
+    {
+      icon: "🏢",
+      value: "12+",
+      label: "Organizations Served",
+      bgColor: "bg-emerald-900/90",
+      borderColor: "border-emerald-500",
+      iconBg: "bg-emerald-700",
+      delay: 0.4, // Restored delay
+    },
      {
       icon: "🏆",
       value: "Top Performer",
@@ -48,15 +48,15 @@ export default function Hero() {
       iconBg: "bg-amber-700",
       delay: 0.8, // Restored delay
     },
-    // {
-    //   icon: "🎤",
-    //   value: "10+",
-    //   label: "Speaking Events",
-    //   bgColor: "bg-purple-900/90",
-    //   borderColor: "border-purple-500",
-    //   iconBg: "bg-purple-700",
-    //   delay: 0.6, // Restored delay
-    // },
+    {
+      icon: "🎤",
+      value: "10+",
+      label: "Speaking Events",
+      bgColor: "bg-purple-900/90",
+      borderColor: "border-purple-500",
+      iconBg: "bg-purple-700",
+      delay: 0.6, // Restored delay
+    },
     
   ]
 
@@ -457,7 +457,7 @@ export default function Hero() {
                     <div className="flex pl-16">
                       <span className="text-slate-500 w-8">11</span>
                       <span className="text-emerald-400">email:</span>
-                      <span className="text-amber-300 mx-2">'mikepeace023@icloud.com'</span>
+                      <span className="text-amber-300 mx-2">'mikepeace981@gmail.com'</span>
                     </div>
                     <div className="flex pl-8">
                       <span className="text-slate-500 w-8">12</span>

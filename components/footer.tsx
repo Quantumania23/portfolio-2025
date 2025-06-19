@@ -159,29 +159,16 @@ export default function Footer() {
              <ul className="space-y-2">
   {navLinks.map((link) => (
     <li key={link.name}>
-      {link.name === "Articles" ? (
-        <a
-          href={`/${link.href}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[#b4bcd0] hover:text-[#00d4ff] transition-colors duration-300"
-        >
-          {link.name}
-        </a>
-      ) : (
-        <Link
-          href={link.href}
-          className="text-[#b4bcd0] hover:text-[#00d4ff] transition-colors duration-300"
-        >
-          {link.name}
-        </Link>
-      )}
+      <Link
+        href={link.href}
+        className="text-[#b4bcd0] hover:text-[#00d4ff] transition-colors duration-300"
+      >
+        {link.name}
+      </Link>
     </li>
   ))}
 </ul>
-
             </div>
-
             {/* Connect */}
             <div>
               <div className="flex space-x-3 mb-6">

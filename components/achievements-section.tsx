@@ -14,7 +14,7 @@ const achievements = [
   },
   {
     icon: "🏢",
-    value: "128K+",
+    value: "12+",
     label: "Organizations Served",
     bgColor: "bg-emerald-900/90",
     borderColor: "border-emerald-500",

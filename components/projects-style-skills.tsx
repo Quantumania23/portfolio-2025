@@ -22,6 +22,8 @@ import {
   Globe,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Calendar } from "./ui/calendar";
+import { motion } from "framer-motion";
 
 interface SidebarItem {
   id: number;
@@ -595,39 +597,74 @@ export default function SidebarNavigationLayout({
                 </div>
 
                 {/* Project Image */}
-                {contentType === "projects" && selectedItem.image && (
-                  <div className="rounded-lg overflow-hidden">
-                    <img
-                      src={selectedItem.image || "/placeholder.svg"}
-                      alt={selectedItem.title}
-                      className="w-full h-auto object-cover"
-                    />
-                  </div>
-                )}
+               {contentType === "skills" ? (
+  <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[65vh] lg:h-[70vh] rounded-full bg-circularLight dark:bg-circularDark overflow-hidden">
+    {/* Center label */}
+    <motion.div
+      className="flex items-center justify-center rounded-full font-semibold bg-dark text-light p-4 sm:p-5 md:p-6 lg:p-8 shadow-lg cursor-pointer dark:text-dark dark:bg-light absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-sm sm:text-base md:text-lg"
+      whileHover={{ scale: 0.75 }}
+    >
+      {selectedItem.title}
+    </motion.div>
 
-                {/* Key Features / Skills */}
-                <div>
-                  <h3 className="text-xl font-semibold mb-4 flex items-center">
-                    <Zap className="w-5 h-5 mr-2 text-[#00ff88]" />
-                    {contentType === "projects" ? "Key Features" : "Key Skills"}
-                  </h3>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {(contentType === "projects"
-                      ? selectedItem.features || []
-                      : selectedItem.skills || []
-                    ).map((item, index) => (
-                      <li
-                        key={index}
-                        className="flex items-start space-x-2 glass-card p-3 rounded-lg"
-                      >
-                        <div className="w-5 h-5 rounded-full bg-[#00ff88]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <div className="w-2 h-2 rounded-full bg-[#00ff88]"></div>
-                        </div>
-                        <span className="text-[#b4bcd0]">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+    {(selectedItem.skills || []).map((skill, index) => {
+      const angle = (index / ((selectedItem.skills?.length ?? 1))) * 2 * Math.PI;
+
+      // Responsive radius in viewport widths per breakpoint
+      const baseRadius = 20; // base for mobile
+      const smRadius = 25;
+      const mdRadius = 30;
+      const lgRadius = 35;
+
+      // Output multiple transforms per breakpoint
+      return (
+        <motion.div
+          key={skill}
+          className="absolute text-xs sm:text-sm md:text-base font-semibold rounded-full bg-dark text-light dark:bg-light dark:text-dark px-2.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 shadow-md cursor-pointer"
+          whileHover={{ scale: 1.05 }}
+          initial={{ x: 0, y: 0 }}
+          whileInView={{
+            x: [
+              `${Math.cos(angle) * baseRadius}vw`,
+              `${Math.cos(angle) * smRadius}vw`,
+              `${Math.cos(angle) * mdRadius}vw`,
+              `${Math.cos(angle) * lgRadius}vw`,
+            ],
+            y: [
+              `${Math.sin(angle) * baseRadius}vw`,
+              `${Math.sin(angle) * smRadius}vw`,
+              `${Math.sin(angle) * mdRadius}vw`,
+              `${Math.sin(angle) * lgRadius}vw`,
+            ],
+            transition: { duration: 1.5 },
+          }}
+          viewport={{ once: true }}
+          style={{
+            left: "50%",
+            top: "50%",
+            transform: "translate(-50%, -50%)",
+          }}
+        >
+          {skill}
+        </motion.div>
+      );
+    })}
+  </div>
+) : (
+  <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+    {(selectedItem.features || []).map((item, index) => (
+      <li
+        key={index}
+        className="flex items-start space-x-2 glass-card p-3 rounded-lg"
+      >
+        <div className="w-5 h-5 rounded-full bg-[#00ff88]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <div className="w-2 h-2 rounded-full bg-[#00ff88]"></div>
+        </div>
+        <span className="text-[#b4bcd0]">{item}</span>
+      </li>
+    ))}
+  </ul>
+)}
 
                 {/* Challenges & Solutions (Projects only) */}
                 {contentType === "projects" &&
@@ -724,6 +761,8 @@ const skillsData: SidebarItem[] = [
       "JavaScript (ES6)",
       "TypeScript",
       "GraphQL",
+      "NodeJS",
+      "C++",
       "SQL",
     ],
     category: "Languages",
