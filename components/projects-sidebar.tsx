@@ -817,7 +817,7 @@ export default function ProjectsSidebar() {
                     <span
                       className="px-3 py-1 rounded-full text-sm font-medium"
                       style={{
-                        backgroundColor: getStatusColor(selectedProject?.status),
+                        backgroundColor: getStatusColor(selectedProject?.status ?? ""),
                         color: "#0a0f1c",
                       }}
                     >
@@ -826,7 +826,7 @@ export default function ProjectsSidebar() {
                     <span
                       className="px-3 py-1 rounded-full text-sm font-medium"
                       style={{
-                        backgroundColor: getDifficultyColor(selectedProject?.difficulty),
+                        backgroundColor: getDifficultyColor(selectedProject?.difficulty ?? ""),
                         color: "#0a0f1c",
                       }}
                     >
@@ -878,7 +878,7 @@ export default function ProjectsSidebar() {
                     </a>
                   )}
                   <button
-                    onClick={() => shareProject(selectedProject)}
+                    onClick={() => selectedProject && shareProject(selectedProject)}
                     className="inline-flex items-center space-x-2 px-4 py-2 glass-card rounded-lg hover:text-[#00d4ff] transition-all duration-300"
                   >
                     <Share2 className="w-5 h-5" />
@@ -953,7 +953,7 @@ export default function ProjectsSidebar() {
 
                 <div className="text-sm text-[#b4bcd0] flex items-center">
                   <Calendar className="w-4 h-4 mr-1 opacity-60" />
-                  <span className="opacity-60">Completed: {new Date(selectedProject?.dateCompleted).toLocaleDateString()}</span>
+                  <span className="opacity-60">Completed: {new Date(selectedProject?.dateCompleted ?? "").toLocaleDateString()}</span>
                 </div>
 
                 <div>

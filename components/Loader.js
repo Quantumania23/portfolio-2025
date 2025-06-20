@@ -12,7 +12,7 @@ const Loader = ({ onComplete }) => {
 
     const timeout = setTimeout(() => {
       onComplete();
-    }, 4000); // Loader completes after 4 seconds
+    }, 3000); // Loader completes after 3 seconds
 
     return () => {
       clearInterval(interval);

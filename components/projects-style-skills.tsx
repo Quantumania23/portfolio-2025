@@ -596,61 +596,189 @@ export default function SidebarNavigationLayout({
                   </p>
                 </div>
 
-                {/* Project Image */}
-               {contentType === "skills" ? (
-  <div className="relative w-full h-[50vh] sm:h-[60vh] md:h-[65vh] lg:h-[70vh] rounded-full bg-circularLight dark:bg-circularDark overflow-hidden">
-    {/* Center label */}
-    <motion.div
-      className="flex items-center justify-center rounded-full font-semibold bg-dark text-light p-4 sm:p-5 md:p-6 lg:p-8 shadow-lg cursor-pointer dark:text-dark dark:bg-light absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-sm sm:text-base md:text-lg"
-      whileHover={{ scale: 0.75 }}
-    >
-      {selectedItem.title}
-    </motion.div>
+          {/* Radial background */}
+{contentType === "skills" ? (
+  <>
+    <div className="w-full h-screen relative flex items-center justify-center rounded-full 
+                    hidden md:flex bg-circularLight dark:bg-circularDark
+                    lg:h-[80vh] sm:h-[60vh] xs:h-[50vh]
+                    lg:bg-circularLightLg lg:dark:bg-circularDarkLg
+                    md:bg-circularLightMd md:dark:bg-circularDarkMd
+                    ">
+      {/* Central Skill Item */}
+      <motion.div
+        className="flex items-center justify-center rounded-full font-semibold 
+                   bg-icons-dark text-icons-light p-8 shadow-icons-dark cursor-pointer 
+                   dark:text-icons-dark dark:bg-icons-light
+                   lg:p-6 md:p-4"
+        whileHover={{ scale: 1.05 }}
+      >
+        <span className="text-center">
+          {selectedItem.title}
+        </span>
+      </motion.div>
 
-    {(selectedItem.skills || []).map((skill, index) => {
-      const angle = (index / ((selectedItem.skills?.length ?? 1))) * 2 * Math.PI;
+      {/* Skills positioned like Stack components */}
+      {(selectedItem.skills || []).map((skill, index) => {
+        // Define manual positions for better control (similar to your Stacks component)
+        const positions = [
+          { x: "-15vw", y: "-2vw" },   // HTML equivalent
+          { x: "11vw", y: "0vw" },    // CSS equivalent
+          { x: "0vw", y: "7vw" },     // python equivalent
+          { x: "4vw", y: "14vw" },    //JS equivalent
+          { x: "-11vw", y: "7vw" },    // TS equivalent
+          { x: "15vw", y: "5vw" },   // GraphQl equivalent
+          { x: "-9vw", y: "-10vw" },  // Bootstrap equivalent
+          { x: "4vw", y: "-13vw" },     // Tailwind equivalent
+          { x: "12vw", y: "-5vw" },    // Material UI equivalent
+          { x: "17vw", y: "-14vw" },   // MongoDB equivalent
+          { x: "18vw", y: "5vw" },     // Adobe Illustrator equivalent
+          { x: "18vw", y: "8vw" },    // Firebase equivalent
+          { x: "16vw", y: "5vw" },    // NodeJS equivalent
+          // Add more positions as needed
+          { x: "0vw", y: "-8vw" },
+          { x: "0vw", y: "-18vw" },
+        ];
+        
+        // Use position if available, otherwise calculate one
+        const position = positions[index] || {
+          x: `${Math.cos((index / (selectedItem.skills?.length ?? 1)) * 2 * Math.PI) * 25}vw`,
+          y: `${Math.sin((index / (selectedItem.skills?.length ?? 1)) * 2 * Math.PI) * 25}vw`
+        };
 
-      // Responsive radius in viewport widths per breakpoint
-      const baseRadius = 20; // base for mobile
-      const smRadius = 25;
-      const mdRadius = 30;
-      const lgRadius = 35;
+        return (
+          <motion.div
+            key={skill}
+            className="flex items-center justify-center rounded-full font-semibold 
+                         bg-dark text-light py-3 px-6 shadow-dark cursor-pointer absolute 
+                         dark:text-dark dark:bg-light
+                         lg:py-2 lg:px-4 md:text-sm md:py-1.5 md:px-3"
+            whileHover={{ 
+              scale: 1.05,
+              backgroundColor: "var(--accent-primary)",
+              color: "#0a0f1c"
+            }}
+            initial={{ x: 0, y: 0 }}
+            whileInView={{ 
+              x: position.x, 
+              y: position.y, 
+              transition: { duration: 1.5, delay: index * 0.1 }
+            }}
+            viewport={{ once: true }}
+          >
+            {skill}
+          </motion.div>
+        );
+      })}
+    </div>
 
-      // Output multiple transforms per breakpoint
-      return (
+
+ {/* Mobile Skills Display - Only visible on sm and below */}
+    <div className="block md:hidden w-full py-8">
+      {/* Mobile Central Title */}
+      <motion.div
+        className="flex items-center justify-center rounded-full font-semibold 
+                   bg-gradient-to-r from-[#00d4ff] to-[#00ff88] text-[#0a0f1c] 
+                   p-6 shadow-lg cursor-pointer mx-auto mb-8 w-40 h-40"
+        initial={{ scale: 0, opacity: 0, rotate: 0 }}
+        whileInView={{ 
+          scale: 1, 
+          opacity: 1, 
+          rotate: 360,
+          transition: { 
+            duration: 1.2,
+            type: "spring",
+            stiffness: 100,
+            damping: 12
+          }
+        }}
+        viewport={{ once: true }}
+        whileHover={{ 
+          scale: 1.05,
+          boxShadow: "0 0 30px rgba(0, 212, 255, 0.5)"
+        }}
+      >
+        <span className="text-center text-lg font-bold">
+          {selectedItem.title}
+        </span>
+      </motion.div>
+      
+      {/* Mobile Skills as Animated Tags */}
+      <div className="mt-8 px-4">
+        <div className="flex flex-wrap justify-center gap-3 max-w-md mx-auto">
+          {(selectedItem.skills || []).map((skill, index) => (
+            <motion.span
+              key={`mobile-${skill}`}
+              className="px-4 py-2 text-sm rounded-full font-medium cursor-pointer
+                         bg-gradient-to-r from-[#00d4ff]/20 to-[#00ff88]/20 
+                         border border-[#00d4ff]/50 text-white backdrop-blur-sm
+                         hover:from-[#00d4ff]/30 hover:to-[#00ff88]/30
+                         hover:border-[#00d4ff] hover:shadow-lg"
+              initial={{ 
+                scale: 0, 
+                opacity: 0, 
+                rotate: -360 
+              }}
+              whileInView={{ 
+                scale: 1,
+                opacity: 1,
+                rotate: 0,
+                transition: { 
+                  duration: 0.8, 
+                  delay: (index * 0.1) + 1.2, // Start after central animation
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 15
+                }
+              }}
+              whileHover={{
+                scale: 1.1,
+                y: -2,
+                boxShadow: "0 5px 15px rgba(0, 212, 255, 0.3)",
+                transition: { duration: 0.2 }
+              }}
+              whileTap={{ scale: 0.95 }}
+              viewport={{ once: true }}
+            >
+              {skill}
+            </motion.span>
+          ))}
+        </div>
+        
+        {/* Optional: Add a subtle pulse animation to the container */}
         <motion.div
-          key={skill}
-          className="absolute text-xs sm:text-sm md:text-base font-semibold rounded-full bg-dark text-light dark:bg-light dark:text-dark px-2.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 shadow-md cursor-pointer"
-          whileHover={{ scale: 1.05 }}
-          initial={{ x: 0, y: 0 }}
-          whileInView={{
-            x: [
-              `${Math.cos(angle) * baseRadius}vw`,
-              `${Math.cos(angle) * smRadius}vw`,
-              `${Math.cos(angle) * mdRadius}vw`,
-              `${Math.cos(angle) * lgRadius}vw`,
-            ],
-            y: [
-              `${Math.sin(angle) * baseRadius}vw`,
-              `${Math.sin(angle) * smRadius}vw`,
-              `${Math.sin(angle) * mdRadius}vw`,
-              `${Math.sin(angle) * lgRadius}vw`,
-            ],
-            transition: { duration: 1.5 },
+          className="mt-6 text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ 
+            opacity: 1,
+            transition: { 
+              delay: (selectedItem.skills?.length || 0) * 0.1 + 2,
+              duration: 0.5 
+            }
           }}
           viewport={{ once: true }}
-          style={{
-            left: "50%",
-            top: "50%",
-            transform: "translate(-50%, -50%)",
-          }}
         >
-          {skill}
+          <div className="inline-flex items-center space-x-2 text-[#b4bcd0] text-xs">
+            <motion.div
+              className="w-2 h-2 bg-[#00d4ff] rounded-full"
+              animate={{ 
+                scale: [1, 1.5, 1],
+                opacity: [0.5, 1, 0.5]
+              }}
+              transition={{ 
+                duration: 2, 
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            <span>Stacks</span>
+          </div>
         </motion.div>
-      );
-    })}
-  </div>
+      </div>
+    </div>
+  </>
 ) : (
+  // Features list for projects (unchanged)
   <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
     {(selectedItem.features || []).map((item, index) => (
       <li

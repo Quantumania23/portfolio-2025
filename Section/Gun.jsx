@@ -69,3 +69,6 @@ const Gun = React.memo(function Gun(props) {
 export default Gun
 
 useGLTF.preload('/gun.glb')
+
+
+
