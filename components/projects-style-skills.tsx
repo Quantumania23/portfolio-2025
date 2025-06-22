@@ -608,12 +608,12 @@ export default function SidebarNavigationLayout({
       {/* Central Skill Item */}
       <motion.div
         className="flex items-center justify-center rounded-full font-semibold 
-                   bg-icons-dark text-icons-light p-8 shadow-icons-dark cursor-pointer 
-                   dark:text-icons-dark dark:bg-icons-light
+                   bg-icons-primary p-8 shadow-icons-dark cursor-pointer 
+                   dark:text-icons-light 
                    lg:p-6 md:p-4"
         whileHover={{ scale: 1.05 }}
       >
-        <span className="text-center">
+        <span className="text-center text-icons-light">
           {selectedItem.title}
         </span>
       </motion.div>
@@ -650,8 +650,8 @@ export default function SidebarNavigationLayout({
           <motion.div
             key={skill}
             className="flex items-center justify-center rounded-full font-semibold 
-                         bg-dark text-light py-3 px-6 shadow-dark cursor-pointer absolute 
-                         dark:text-dark dark:bg-light
+                         bg-icons-primary text-icons-light py-3 px-6 shadow-dark cursor-pointer absolute 
+                         dark:text-icons-dark dark:bg-icons-light
                          lg:py-2 lg:px-4 md:text-sm md:py-1.5 md:px-3"
             whileHover={{ 
               scale: 1.05,

@@ -14,6 +14,7 @@ interface GradientMagicButtonProps {
   as?: "a" | "button"
   target?: string
   rel?: string
+  showCursor?: boolean
 }
 
 export default function GradientMagicButton({
@@ -26,6 +27,7 @@ export default function GradientMagicButton({
   as = "a",
   target,
   rel,
+  showCursor = true,
 }: GradientMagicButtonProps) {
     const gradientMap = {
         primary:
@@ -40,6 +42,7 @@ export default function GradientMagicButton({
     background: gradientMap[accentColor],
     position: "relative" as const,
     overflow: "hidden" as const,
+    cursor: showCursor ? "pointer" : "default",
   }
 
   const Component = as

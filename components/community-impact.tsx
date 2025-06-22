@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react"
 import { Calendar, Users, MapPin, ExternalLink, Filter, Share2, Clock, Award, Heart } from "lucide-react"
 import { cn } from "@/lib/utils"
 import GradientMagicButton from "./gradient-magic-button"
+import Contact from "./Contacts"
 
 
 // Types for different activities
@@ -206,6 +207,7 @@ export default function CommunityImpact() {
   const [isLoading, setIsLoading] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const [isMounted, setIsMounted] = useState(false);
+    const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
@@ -294,6 +296,14 @@ export default function CommunityImpact() {
       navigator.clipboard.writeText(event.eventUrl || window.location.href)
     }
   }
+
+  const handleContactPopupOpen = () => {
+    setIsContactPopupOpen(true);
+  };
+
+  const handleContactPopupClose = () => {
+    setIsContactPopupOpen(false);
+  };
 
   return (
     <section
@@ -853,7 +863,7 @@ export default function CommunityImpact() {
             impact together.
           </p>
           <GradientMagicButton
-                  href="#contact"
+                  onClick={handleContactPopupOpen}
                   className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105"
                   style={{ color: "#ffff" }}
                   accentColor="primary"
@@ -864,6 +874,8 @@ export default function CommunityImpact() {
         </div>
       </div>
       <div className="community-section-end"></div>
+      {/* Contact Form Popup */}
+      {isContactPopupOpen && <Contact handleClose={handleContactPopupClose} />}
     </section>
   )
 }
