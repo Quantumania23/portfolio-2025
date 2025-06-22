@@ -10,15 +10,13 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { useMediaQuery } from "react-responsive";
 import TransitionEffect from "@/components/TransitionEffect";
-
 import LiIcon from "@/components/LiIcon";
 import RenderModel from "@/Section/RenderModel";
 import Staff from "@/Section/Staff";
 import Developer from "@/Section/Developer";
-import CanvasLoader from "@/Components/Loading";
 import ArticlesFooter from "./ArticlesFooter";
 import ArticlesNavigation from "./ArticlesNavigation";
-
+import CanvasLoader from "@/components/CanvasLoader";
 const FramerImage = motion(Image);
 
 // Particle Background Component
