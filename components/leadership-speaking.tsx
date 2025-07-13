@@ -41,10 +41,10 @@ interface Education {
 const speakingEvents: SpeakingEvent[] = [
   {
     id: 1,
-    title: "Software Quality Conference 2024",
+    title: "Software Quality Conference 2027",
     topic: "Contract Testing with Pact",
-    date: "February 2024",
-    year: 2024,
+    date: "February 2027",
+    year: 2027,
     audience: "Software Engineers & QA Professionals",
     type: "conference",
     description:
@@ -56,9 +56,9 @@ const speakingEvents: SpeakingEvent[] = [
   {
     id: 2,
     title: "Safaricom Engineering Summit",
-    topic: "Workshop on Safaricom Daraja 2.0 API",
-    date: "July 2022",
-    year: 2022,
+    topic: "Workshop on Safaricom Daraja 3.0 API",
+    date: "July 2026",
+    year: 2026,
     audience: "Internal Engineering Teams",
     type: "workshop",
     description:
@@ -68,16 +68,16 @@ const speakingEvents: SpeakingEvent[] = [
   },
   {
     id: 3,
-    title: "3rd Annual PyConKE Conference",
+    title: "7th Annual PyConKE Conference",
     topic: "Effective Testing with Python",
-    date: "May 2022",
-    year: 2022,
+    date: "May 2026",
+    year: 2026,
     audience: "Python Developers in Kenya",
     type: "community",
     description:
       "Delivered a comprehensive talk on Python testing frameworks, covering pytest, unittest, and testing best practices for scalable applications.",
     location: "University of Nairobi",
-    eventUrl: "https://pycon.or.ke/2022",
+    eventUrl: "https://pycon.or.ke/2026",
     slidesUrl: "https://example.com/slides/python-testing",
   },
 ]
@@ -87,11 +87,11 @@ const communityRoles: CommunityRole[] = [
     id: 1,
     title: "AWS Community Builder",
     organization: "Amazon Web Services",
-    duration: "August 2022 - March 2023",
+    duration: "In Progress",
     role: "Technical advocate and knowledge sharing",
     focus: "Front-End Web & Mobile",
     description:
-      "Selected as an AWS Community Builder focusing on frontend and mobile development. Contributed to community knowledge sharing through technical content, workshops, and mentoring.",
+      "Will be selected as an AWS Community Builder focusing on frontend and mobile development whilst contributing to community knowledge sharing through technical content, workshops, and mentoring.",
     icon: "☁️",
   },
 ]
@@ -109,7 +109,7 @@ const education: Education[] = [
 ]
 
 const eventTypes = ["All", "Conference", "Workshop", "Community"]
-const years = ["All", "2024", "2022"]
+const years = ["All", "2027", "2026"]
 
 export default function LeadershipSpeaking() {
   const [activeFilter, setActiveFilter] = useState("All")

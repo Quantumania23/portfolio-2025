@@ -52,25 +52,25 @@ interface VolunteeringActivity {
 const speakingEvents: SpeakingEvent[] = [
   {
     id: 1,
-    title: "Software Quality Conference 2024",
+    title: "Software Quality Conference 2027",
     topic: "Contract Testing with Pact - Robust Alternative to Integration Testing",
-    date: "February 2024",
-    year: 2024,
+    date: "February 2027",
+    year: 2027,
     audience: "Software Engineers & QA Professionals",
     type: "conference",
     description:
       "Presented advanced contract testing strategies using Pact framework, demonstrating how to implement consumer-driven contracts for microservices architecture. Focused on improving deployment flexibility and reducing integration testing overhead.",
     location: "Radison Blu, Nairobi, Kenya",
-    eventUrl: "https://www.linkedin.com/posts/ondiek-elijah_well-done-to-adera-karume-and-elijah-ondiek-activity-7201798593693888512-GtqB?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC5zSqIBhBPTfgIhjlXXki6KbaJUByZdeC8",
-    slidesUrl: "https://www.canva.com/design/DAF9ev910tY/LfG9gtzMWl7sA9ue7OXdcQ/edit?",
+    eventUrl: "https://www.linkedin.com/",
+    slidesUrl: "https://www.canva.com/",
     audienceSize: 100,
   },
   {
     id: 2,
     title: "Safaricom Engineering Summit",
     topic: "Getting Started with Daraja 2.0 API",
-    date: "July 2022",
-    year: 2022,
+    date: "July 2026",
+    year: 2026,
     audience: "Internal Engineering Teams",
     type: "workshop",
     description:
@@ -81,32 +81,32 @@ const speakingEvents: SpeakingEvent[] = [
   },
   {
     id: 3,
-    title: "PyConKE 2022",
+    title: "PyConKE 2026",
     topic: "Effective Testing of Python Applications using Pytest",
-    date: "June 2022",
-    year: 2022,
+    date: "June 2026",
+    year: 2026,
     audience: "Python Developers in Kenya",
     type: "community",
     description:
       "Delivered a comprehensive talk on Python testing frameworks, covering pytest, unittest, and testing best practices for scalable applications. Demonstrated advanced pytest features and patterns for maintainable test suites.",
     location: "USIU, Nairobi",
-    eventUrl: "https://sessionize.com/s/ondiek-elijah/effective-testing-with-python/47954",
+    eventUrl: "https://sessionize.com/",
     slidesUrl: "https://example.com/slides/python-testing",
     audienceSize: 50,
   },
   {
     id: 4,
-    title: "Google I/O 2022 Extended Nairobi",
+    title: "Google I/O 2026 Extended Nairobi",
     topic: "Leveraging Google's Dialogflow to Automate Conversational Applications",
-    date: "July 2022",
-    year: 2022,
+    date: "July 2026",
+    year: 2026,
     audience: "Student Developers",
     type: "workshop",
     description:
       "Led a hands-on workshop for student developers on building conversational interfaces using Google's Dialogflow. Participants created a functional chatbot by the end of the session with practical knowledge of NLP concepts.",
     location: "KCA University, Nairobi",
-    eventUrl: "https://sessionize.com/s/ondiek-elijah/using-googles-dialogflow-to-automate-conversationa/57366",
-    audienceSize: 20,
+    eventUrl: "https://sessionize.com/",
+    audienceSize: 50,
   },
 ]
 
@@ -116,11 +116,11 @@ const communityRoles: CommunityRole[] = [
     id: 1,
     title: "AWS Community Builder",
     organization: "Amazon Web Services",
-    duration: "August 2022 - April 2023",
+    duration: "In Progress",
     role: "Technical advocate and knowledge sharing",
     focus: "Front-End Web & Mobile development",
     description:
-      "Selected as an AWS Community Builder focusing on frontend and mobile development. Contributed to community knowledge sharing through technical content, workshops, and mentoring.",
+      "Will be selected as an AWS Community Builder focusing on frontend and mobile development whilst contributing to community knowledge sharing through technical content, workshops, and mentoring.",
     icon: "☁️",
     logo: "/aws-logo.png",
   },
@@ -128,11 +128,11 @@ const communityRoles: CommunityRole[] = [
     id: 2,
     title: "Microsoft Learn Student Ambassador",
     organization: "Microsoft",
-    duration: "November 2021 - Present",
+    duration: "In Progress",
     role: "Gold Student Ambassador",
     focus: "Student community building and tech education",
     description:
-      "Serving as a Gold Microsoft Learn Student Ambassador for over 3 years, organizing workshops, hackathons, and training sessions to empower students with Microsoft technologies. Mentored junior ambassadors and facilitated community growth.",
+      "Will be serving as a Gold Microsoft Learn Student Ambassador, organizing workshops, hackathons, and training sessions to empower students with Microsoft technologies. Mentoring junior ambassadors and facilitating community growth.",
     icon: "🪟",
     logo: "/microsoft-logo.png",
   },
@@ -140,11 +140,11 @@ const communityRoles: CommunityRole[] = [
     id: 3,
     title: "Google Developer Student Club Team Lead",
     organization: "Google Developers",
-    duration: "August 2022 - April 2023",
+    duration: "In Progress",
     role: "Community Lead",
     focus: "Organizing tech events and workshops",
     description:
-      "Led the Google Developer Student Club at my university, organizing technical workshops, coding sessions, and developer meetups. Facilitated learning opportunities in mobile development, web technologies, and cloud computing.",
+      "Led the Google Developer Student Club at my learning institute, organizing technical workshops, coding sessions, and developer meetups. Facilitated learning opportunities in mobile development, web technologies, and cloud computing.",
     icon: "🔍",
     logo: "/google-developers-logo.png",
   },
@@ -167,14 +167,14 @@ const volunteeringActivities: VolunteeringActivity[] = [
   {
     id: 2,
     title: "Technical Writer",
-    organization: "She Code Africa",
+    organization: "Q23 Studdios",
     duration: "May 2022 - Present",
-    focus: "Creating technical content for women in tech",
+    focus: "Creating technical content for an up and coming company",
     description:
-      "Contributing technical articles and tutorials to support women in technology across Africa. Topics include web development for underrepresented groups in tech.",
-    impact: "Articles reached 5,000+ readers, contributing to increased participation in tech events",
+      "Contributing technical articles and tutorials to support techies across Africa. Topics include web development for underrepresented groups in tech.",
+    impact: "Articles reached some readers, contributing to increased participation in tech events",
     icon: "✍️",
-    logo: "/she-code-africa-logo.svg",
+    logo: "/Q23.jpeg",
   },
   {
     id: 3,
@@ -192,7 +192,7 @@ const volunteeringActivities: VolunteeringActivity[] = [
 
 // Event types and years for filtering
 const eventTypes = ["All", "Conference", "Workshop", "Community"]
-const years = ["All", "2024", "2022"]
+const years = ["All", "2027", "2026"]
 
 type TabType = "speaking" | "leadership" | "volunteering"
 
@@ -816,7 +816,7 @@ export default function CommunityImpact() {
                       backgroundClip: "text",
                     }}
                   >
-                    4+ Years
+                    2+ Years
                   </div>
                   <p className="text-[#b4bcd0] text-sm">Active Volunteering</p>
                 </div>
@@ -830,9 +830,9 @@ export default function CommunityImpact() {
                       backgroundClip: "text",
                     }}
                   >
-                    50+ Students
+                    Some Individuals
                   </div>
-                  <p className="text-[#b4bcd0] text-sm">Directly Mentored</p>
+                  <p className="text-[#b4bcd0] text-sm">Directly Impacted</p>
                 </div>
 
                 <div>
@@ -844,7 +844,7 @@ export default function CommunityImpact() {
                       backgroundClip: "text",
                     }}
                   >
-                    55,000+ Views
+                    50+ Views
                   </div>
                   <p className="text-[#b4bcd0] text-sm">Educational Content</p>
                 </div>
