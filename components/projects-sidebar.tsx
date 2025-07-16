@@ -62,7 +62,7 @@ const projects: Project[] = [
     category: "Corporate",
     difficulty: "Advanced",
     status: "Creation",
-    image: "/projects/project-logo-3.png",
+    image: "/projects/project3.mp4",
     githubUrl: "https://github.com/Quantumania23/HealthCare",
     liveUrl: "https://",
     challenges: ["Multi-tenant data isolation", "Secure session management", "Fine-grained access control", "Performance at scale"],
@@ -158,7 +158,7 @@ const projects: Project[] = [
     category: "API",
     difficulty: "Intermediate",
     status: "Creation",
-    image: "/projects/GraphQL eCommerce Backend.png",
+    image: "/projects/project1.mp4",
     githubUrl: "https://github.com/Quantumania23/Q23-Podacastr",
     liveUrl:"https://q23-podcastr.vercel.app",
     challenges: ["Optimizing complex queries", "Implementing efficient review system", "Handling product relationships"],
@@ -404,9 +404,28 @@ const projects: Project[] = [
     primaryTech: "AWS",
     primaryTechIcon: <Server />,
   },
-
- 
-
+  
+  {
+    id: 22,
+    title: "Ride App",
+    tagline: "Python Flask application with nested comment system",
+    description: "Python Flask application with MySQL, SQLAlchemy ORM, and nested comment system",
+    longDescription:
+      "A discussion platform featuring nested comment threads, user moderation tools, and real-time updates for engaging community conversations.",
+    technologies: ["Python", "Flask", "MySQL", "SQLAlchemy", "Bootstrap"],
+    category: "Web App",
+    difficulty: "Intermediate",
+    status: "Creation",
+    image: "/projects/Ride.png",
+    githubUrl: "https://github.com/Quantumania23/Dynamic-Nested-Reply-Platform",
+    challenges: ["Nested comment structure", "Performance optimization", "Real-time updates"],
+    solutions: ["Recursive query optimization", "Database indexing", "WebSocket implementation"],
+    features: ["Nested comments", "User moderation", "Real-time updates", "Vote system"],
+    dateCompleted: "2023-06-12",
+    metrics: ["10,000+ comments stored", "5-level deep nesting support", "50ms average page load"],
+    primaryTech: "Flask",
+    primaryTechIcon: <Server />,
+  },
   {
     id: 22,
     title: "Threaded Replies App",
@@ -419,7 +438,7 @@ const projects: Project[] = [
     difficulty: "Intermediate",
     status: "Creation",
     image: "/projects/Nested Comments Engine.png",
-    githubUrl: "hhttps://github.com/Quantumania23/Dynamic-Nested-Reply-Platform",
+    githubUrl: "https://github.com/Quantumania23/Dynamic-Nested-Reply-Platform",
     challenges: ["Nested comment structure", "Performance optimization", "Real-time updates"],
     solutions: ["Recursive query optimization", "Database indexing", "WebSocket implementation"],
     features: ["Nested comments", "User moderation", "Real-time updates", "Vote system"],
@@ -439,7 +458,7 @@ const projects: Project[] = [
     category: "Web App",
     difficulty: "Intermediate",
     status: "Creation",
-    image: "/projects/Nested Comments Engine.png",
+    image: "/projects/project4.mp4",
     githubUrl: "hhttps://github.com/Quantumania23/Horizon",
     challenges: ["Nested comment structure", "Performance optimization", "Real-time updates"],
     solutions: ["Recursive query optimization", "Database indexing", "WebSocket implementation"],
@@ -449,6 +468,7 @@ const projects: Project[] = [
     primaryTech: "Next.js",
     primaryTechIcon: <Code />,
   },
+  
    {
     id: 24,
     title: "LiveDoc - Real-Time Google Docs Clone",
@@ -460,7 +480,7 @@ const projects: Project[] = [
     category: "Web App",
     difficulty: "Intermediate",
     status: "Creation",
-    image: "/projects/Nested Comments Engine.png",
+    image: "/projects/project2.mp4",
     githubUrl: "hhttps://github.com/Quantumania23/Q23-LiveDocs",
     challenges: ["Nested comment structure", "Performance optimization", "Real-time updates"],
     solutions: ["Recursive query optimization", "Database indexing", "WebSocket implementation"],
@@ -470,6 +490,7 @@ const projects: Project[] = [
     primaryTech: "Next.js",
     primaryTechIcon: <Layout />,
   },
+  
 
 
 ]
