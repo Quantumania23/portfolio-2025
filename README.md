@@ -1,4 +1,4 @@
-# Q23 Studdios - Portfolio 2025
+# Mike Peace - Portfolio 2025
 
 A modern, interactive portfolio website showcasing my skills, projects, and professional experience.
 

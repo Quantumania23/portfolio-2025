@@ -145,8 +145,7 @@ export default function RootLayout({
         {/* Additional SEO meta tags */}
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="googlebot" content="index, follow" />
-          <meta name="google-site-verification" content="lu2o8adyYEKEbj491hVUrs86jLt80NwqEKikVRAz8TA" />
-
+        <meta name="google-site-verification" content="your-verification-code-here" />
         
         {/* Geographic targeting */}
         <meta name="geo.region" content="KE" />
