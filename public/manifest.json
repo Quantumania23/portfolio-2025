@@ -1,0 +1,16 @@
+{
+  "name": "Mike Peace - Software Devloper Portfolio",
+  "short_name": "Mike Peace",
+  "description": "Professional Software Devloper from Kenya specializing in React, Next.js, ThreeJs and full-stack development",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0f1c",
+  "theme_color": "#00d4ff",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}

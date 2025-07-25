@@ -48,37 +48,47 @@ interface Project {
   metrics?: string[]
   primaryTech: string
   primaryTechIcon: React.ReactNode
+  media?: {
+    type: "video" | "image"
+    src: string
+    poster?: string
+  }
 }
 
 const projects: Project[] = [
-  {
-    id: 1,
-    title: "CarePulse - Health Management System",
-    tagline: "An innovative healthcare platform designed to streamline essential medical processes",
-    description: "An innovative healthcare platform designed to streamline essential medical processes. It simplifies patient registration, appointment scheduling, and medical record management, providing a seamless experience for both healthcare providers and patients.",
-    longDescription:
-      "With a focus on efficiency, Q23Pulse integrantes complex forms and SMS notifications, by using Next.js, Appwrite, Twillio and Sentry that enhance operational workflows.",
-    technologies: ["ReactJs", "Framer-Motion", "TailwindCSS", "TypeScript", "AppWrite"],
-    category: "Corporate",
-    difficulty: "Advanced",
-    status: "Creation",
-    image: "/projects/project3.mp4",
-    githubUrl: "https://github.com/Quantumania23/HealthCare",
-    liveUrl: "https://",
-    challenges: ["Multi-tenant data isolation", "Secure session management", "Fine-grained access control", "Performance at scale"],
-    solutions: ["Tenant-scoped database queries", "Redis cache for token validation", "Hierarchical RBAC model", "Optimized caching strategies"],
-    features: [
-      "JWT-based authentication", 
-      "Role-based access control", 
-      "Multi-tenancy support", 
-      "Account security (lockout, tracking)", 
-      "One device, one session policy",
-      "Audit logging"
-    ],
-    dateCompleted: "2024-02-15",
-    primaryTech: "FastAPI",
-    primaryTechIcon: <Server />,
+{
+  id: 1,
+  title: "CarePulse - Health Management System",
+  tagline: "An innovative healthcare platform designed to streamline essential medical processes",
+  description: "An innovative healthcare platform designed to streamline essential medical processes. It simplifies patient registration, appointment scheduling, and medical record management, providing a seamless experience for both healthcare providers and patients.",
+  longDescription:
+    "With a focus on efficiency, Q23Pulse integrantes complex forms and SMS notifications, by using Next.js, Appwrite, Twillio and Sentry that enhance operational workflows.",
+  technologies: ["ReactJs", "Framer-Motion", "TailwindCSS", "TypeScript", "AppWrite"],
+  category: "Corporate",
+  difficulty: "Advanced",
+  status: "Creation",
+  image: "/projects/project3-poster.jpg",
+  dateCompleted: "2024-02-15",
+  primaryTech: "FastAPI",
+  primaryTechIcon: <Server />,
+  media: {
+    type: "video", // or "image"
+    src: "/projects/project3.mp4",
+    poster: "/projects/project-logo3.png" // optional: thumbnail for video
   },
+  githubUrl: "https://github.com/Quantumania23/HealthCare",
+  liveUrl: "https://",
+  challenges: ["Multi-tenant data isolation", "Secure session management", "Fine-grained access control", "Performance at scale"],
+  solutions: ["Tenant-scoped database queries", "Redis cache for token validation", "Hierarchical RBAC model", "Optimized caching strategies"],
+  features: [
+    "JWT-based authentication", 
+    "Role-based access control", 
+    "Multi-tenancy support", 
+    "Account security (lockout, tracking)", 
+    "One device, one session policy",
+    "Audit logging"
+  ],
+},
   {
     id: 2,
     title: "ShadowCoach: Boxing Form Analyzer",

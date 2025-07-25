@@ -113,7 +113,7 @@ export default function Footer() {
   const socialLinks = [
     { name: "GitHub", href: process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com/Quantumania23", icon: <Github className="w-5 h-5" /> },
     { name: "LinkedIn", href: process.env.NEXT_PUBLIC_LINKEDIN_URL || "https://www.linkedin.com/in/mike-mutuku-0a243a1bb/", icon: <Image src={'/In.gif'} alt="LinkedIn" width={1} height={1} className="w-6 h-6" /> },
-    { name: "Twitter", href: process.env.NEXT_PUBLIC_TWITTER_URL || "https://x.com/Mikepeace981", icon: <Twitter className="w-5 h-5" /> },
+    { name: "Twitter", href: process.env.NEXT_PUBLIC_TWITTER_URL || "https://x.com/Mikepeace981", icon: <Image src={'/X.gif'} alt="X" width={1} height={1} className="w-5 h-5" /> },
     // { name: "Email", href: `mailto:${process.env.NEXT_PUBLIC_EMAIL || "mikepeace981@gmail.com"}`, icon: <Image src={'/Email.gif'} alt="Email" width={1} height={1} className="w-5 h-5" /> },
 
    {

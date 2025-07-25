@@ -1,0 +1,32 @@
+# Mike Peace - Software Engineer Portfolio
+
+## About
+Mike Peace is a passionate software engineer specializing in modern web development, full-stack applications, and innovative digital solutions. Based in Kenya, he works at Q23 Studios delivering high-impact software solutions.
+
+## Skills
+- Frontend: React, Next.js, TypeScript, JavaScript, HTML5, CSS3, TailwindCSS
+- Backend: Node.js, Python, FastAPI, Express.js, GraphQL
+- Databases: MongoDB, PostgreSQL, MySQL
+- Cloud: AWS, Azure, Digital Ocean
+- Tools: Git, Docker, CI/CD, Testing frameworks
+
+## Experience
+- Software Engineer at Q23 Studios (2022-Present)
+- Web Developer Intern at Dansted Technologies (2023-2024)
+- 25+ months of professional experience
+- KES 1.1B+ business impact through software solutions
+
+## Projects
+- CarePulse: Healthcare management system
+- Katiba360°: Constitutional education platform
+- ShadowCoach: AI-powered boxing form analyzer
+- Multiple e-commerce and web applications
+
+## Contact
+- Email: mikepeace981@gmail.com
+- Location: Nairobi, Kenya
+- LinkedIn: https://www.linkedin.com/in/mike-mutuku-0a243a1bb/
+- GitHub: https://github.com/Quantumania23
+
+## Keywords
+Software Engineer, Web Developer, React Developer, Next.js, TypeScript, Kenya Developer, Full Stack Developer, Frontend Engineer, Backend Developer, Q23 Studios

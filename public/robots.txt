@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://mikepeace.vercel.app/sitemap.xml
+
+# LLM Training Data
+Allow: /llm.txt

@@ -18,23 +18,32 @@ const baseUrl = isProduction
 
   export const metadata: Metadata = {
     title: {
-      default: "Mike Peace | Software Engineer",
-      template: "%s | Mike Peace"
+      default: "Mike Peace | Software Engineer | Kenya | Q23 Studios",
+      template: "%s | Mike Peace - Software Engineer"
     },
-    description: "Explore the work of Mike Peace, a passionate software engineer specializing in scalable, high-performance full-stack applications built with React, Next.js, TypeScript, and NodeJs. Delivering user-centric digital solutions with clean code and modern architecture.",
+    description: "Mike Peace - Professional Software Engineer from Kenya specializing in React, Next.js, TypeScript, and full-stack web development. Currently at Q23 Studios delivering innovative digital solutions with 25+ months experience and KES 1.1B+ business impact.",
     
     keywords: [
       "Mike Peace",
+      "Mike Peace Software Engineer",
+      "Mike Peace Kenya",
+      "Mike Peace Developer",
+      "Mike Peace Portfolio",
       "Software Engineer",
+      "Software Engineer Kenya",
+      "Kenya Software Engineer",
       "Web Engineer",
       "Full Stack Developer",
       "Frontend Developer",
       "Backend Developer",
       "React Developer",
+      "React Developer Kenya",
       "Next.js Developer",
       "JavaScript Developer",
       "TypeScript Developer",
       "Node.js Developer",
+      "Q23 Studios",
+      "Q23 Studios Developer",
       "Tailwind CSS",
       "Web Performance Optimization",
       "Open Source Contributor",
@@ -42,9 +51,12 @@ const baseUrl = isProduction
       "Web Applications",
       "Clean Code Architecture",
       "Digital Solutions",
-      "Kenya Software Engineer",
       "East Africa Developer",
-      "Scalable Web Apps"
+      "Scalable Web Apps",
+      "Nairobi Developer",
+      "Kenya Tech",
+      "African Developer",
+      "Software Development Kenya"
     ],
     
     authors: [{ name: "Mike Peace", url: baseUrl }],
@@ -68,22 +80,22 @@ const baseUrl = isProduction
       type: 'website',
       locale: 'en_US',
       url: baseUrl,
-      title: "Mike Peace | Software Engineer",
-      description: "Discover Mike Peace, a dedicated software engineer crafting innovative full-stack web solutions with React, Next.js, and Python.",
-      siteName: "Mike Peace - Software Engineer",
+      title: "Mike Peace | Software Engineer | Kenya | Q23 Studios",
+      description: "Mike Peace - Professional Software Engineer from Kenya at Q23 Studios. Specializing in React, Next.js, TypeScript with 25+ months experience and KES 1.1B+ business impact.",
+      siteName: "Mike Peace - Software Engineer Portfolio",
       images: [
         {
           url: '/og-image.jpg',
           width: 1200,
           height: 630,
-          alt: "Mike Peace - Professional Software Engineer",  
+          alt: "Mike Peace - Professional Software Engineer from Kenya",  
           type: 'image/jpeg',
         },
         {
           url: '/og-image-square.jpg',
           width: 1200,
           height: 1200,
-          alt: "Mike Peace - Software & Web Engineer",
+          alt: "Mike Peace - Software Engineer Kenya Q23 Studios",
           type: 'image/jpeg',
         }
       ],
@@ -92,8 +104,8 @@ const baseUrl = isProduction
     // Twitter metadata
     twitter: {
       card: 'summary_large_image',
-      title: "Mike Peace | Software Engineer",
-      description: "Professional software engineer specializing in modern web technologies, scalable full-stack solutions, and clean architecture.",
+      title: "Mike Peace | Software Engineer | Kenya",
+      description: "Professional Software Engineer from Kenya at Q23 Studios. React, Next.js, TypeScript specialist with 25+ months experience and KES 1.1B+ business impact.",
       creator: '@Mikepeace981',
       site: '@Mikepeace981',
       images: [
@@ -101,7 +113,7 @@ const baseUrl = isProduction
           url: '/og-image.jpg',
           width: 1200,
           height: 630,
-          alt: "Mike Peace - Software Engineer",
+          alt: "Mike Peace - Software Engineer Kenya",
         }
       ],
     },
@@ -130,31 +142,109 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         
+        {/* Additional SEO meta tags */}
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow" />
+          <meta name="google-site-verification" content="lu2o8adyYEKEbj491hVUrs86jLt80NwqEKikVRAz8TA" />
+
+        
+        {/* Geographic targeting */}
+        <meta name="geo.region" content="KE" />
+        <meta name="geo.placename" content="Nairobi" />
+        <meta name="geo.position" content="-1.286389;36.817223" />
+        <meta name="ICBM" content="-1.286389, 36.817223" />
+        
+        {/* Additional Open Graph tags */}
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="website" />
+        <meta property="article:author" content="Mike Peace" />
+        
         {/* Structured Data - JSON-LD */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Person",
-              "name": "Mike Peace",
-              "jobTitle": "Software Engineer",
-              "description": "Passionate software engineer specializing in modern web engineering",
-              "url": baseUrl,
-              "sameAs": [
-                process.env.NEXT_PUBLIC_GITHUB_URL,
-                process.env.NEXT_PUBLIC_LINKEDIN_URL,
-                process.env.NEXT_PUBLIC_TWITTER_URL,
-              ].filter(Boolean),
-              "email": process.env.NEXT_PUBLIC_EMAIL,
-              "knowsAbout": [
-                "JavaScript",
-                "TypeScript", 
-                "React",
-                "Next.js",
-                "Web Development",
-                "Software Engineering"
-              ],
+              "@graph": [
+                {
+                  "@type": "Person",
+                  "@id": `${baseUrl}#person`,
+                  "name": "Mike Peace",
+                  "alternateName": ["Mike Peace Developer", "Mike Peace Software Engineer", "Mike Peace Kenya"],
+                  "jobTitle": "Software Engineer",
+                  "description": "Professional Software Engineer from Kenya specializing in React, Next.js, TypeScript, and full-stack web development",
+                  "worksFor": {
+                    "@type": "Organization",
+                    "name": "Q23 Studios",
+                    "url": baseUrl
+                  },
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Nairobi",
+                    "addressRegion": "Nairobi County",
+                    "addressCountry": "Kenya"
+                  },
+                  "url": baseUrl,
+                  "sameAs": [
+                    process.env.NEXT_PUBLIC_GITHUB_URL,
+                    process.env.NEXT_PUBLIC_LINKEDIN_URL,
+                    process.env.NEXT_PUBLIC_TWITTER_URL,
+                  ].filter(Boolean),
+                  "email": process.env.NEXT_PUBLIC_EMAIL || "mikepeace981@gmail.com",
+                  "knowsAbout": [
+                    "JavaScript",
+                    "TypeScript", 
+                    "React",
+                    "Next.js",
+                    "Node.js",
+                    "Python",
+                    "FastAPI",
+                    "MongoDB",
+                    "PostgreSQL",
+                    "AWS",
+                    "Web Development",
+                    "Software Engineering",
+                    "Full Stack Development",
+                    "Frontend Development",
+                    "Backend Development"
+                  ],
+                  "hasOccupation": {
+                    "@type": "Occupation",
+                    "name": "Software Engineer",
+                    "occupationLocation": {
+                      "@type": "City",
+                      "name": "Nairobi, Kenya"
+                    }
+                  }
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": `${baseUrl}#website`,
+                  "url": baseUrl,
+                  "name": "Mike Peace - Software Engineer Portfolio",
+                  "description": "Professional Software Engineer from Kenya specializing in React, Next.js, TypeScript, and full-stack web development",
+                  "publisher": {
+                    "@id": `${baseUrl}#person`
+                  },
+                  "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": {
+                      "@type": "EntryPoint",
+                      "urlTemplate": `${baseUrl}?q={search_term_string}`
+                    },
+                    "query-input": "required name=search_term_string"
+                  }
+                },
+                {
+                  "@type": "Organization",
+                  "@id": `${baseUrl}#organization`,
+                  "name": "Q23 Studios",
+                  "url": baseUrl,
+                  "employee": {
+                    "@id": `${baseUrl}#person`
+                  }
+                }
+              ]
             })
           }}
         />
